@@ -14,4 +14,8 @@
   .btn {
     @apply w-full bg-blue-500 p-4 text-white font-semibold rounded-lg transition-transform transform active:scale-[1.02] hover:scale-100;
   }
+
+  .tap {
+    @apply transition-transform transform active:scale-[1.02] hover:scale-100;
+  }
 }
