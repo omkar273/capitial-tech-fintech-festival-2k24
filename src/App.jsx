@@ -1,6 +1,6 @@
 /* NODE MODULES */
 import ErrorPage from '@/features/errorpage/ErrorPage.jsx'
-import HomePage from '@/features/landing_page/home_page.jsx'
+import HomePage from '@/features/landing_page/pages/home_page.jsx'
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
