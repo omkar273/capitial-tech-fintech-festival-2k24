@@ -5,10 +5,10 @@
 @tailwind utilities;
 @layer components {
   .pg {
-    @apply min-w-full  min-h-screen;
+    @apply min-w-full  min-h-screen bg-[#f1f4f8] font-open-sans;
   }
   .gr-pg {
-    @apply min-w-full  min-h-screen bg-gradient-to-b from-[#0066FF] to-[#36FFDB];
+    @apply min-w-full  min-h-screen bg-gradient-to-b from-[#0066FF] to-[#36FFDB] font-open-sans;
   }
 
   .btn {
