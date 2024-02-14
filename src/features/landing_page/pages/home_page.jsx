@@ -3,6 +3,7 @@ import Spacer from '@/core/components/spacer';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeNavbar from "../components/homepage_navbar";
 const HomePage = () => {
+
     return (
         <div className="gr-pg">
             {/* navbar */}
@@ -13,8 +14,8 @@ const HomePage = () => {
                 <img src="/src/assets/images/capitallogo.png" />
 
                 <Spacer height={15} />
-                <div className=" w-full md:w-1/2 flex gap-4 px-4 py-2 bg-white rounded-md justify-center items-center">
-                    <SearchIcon fontSize='medium' />
+                <div className=" w-full md:w-1/2 flex gap-4 px-4 py-3 bg-white rounded-md justify-center items-center">
+                    <SearchIcon className='tap ' />
 
                     <input type="text" className="border-none focus:outline-none text-base flex-grow" placeholder='Search company name...' />
                 </div>
