@@ -1,16 +1,35 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CompanyDetailsPageNavbar from '../components/company_page_navbar';
+import { getCompanyDetails } from '../utils/get_company_details';
+
+
+
 const CompanyDetailsPage = () => {
-    // Access the dynamic parameter 'symbol' using the useParams hook
     const { symbol } = useParams();
+
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const [company, setcompany] = useState({})
+
+    const getData = async () => {
+        const res = await getCompanyDetails(symbol);
+
+        setcompany(res)
+        console.log(`res in page `);
+        console.log(res);
+    }
 
     return (
         <div className='pg'>
             <CompanyDetailsPageNavbar />
-            <h2>Company Details Page</h2>
-            <p>Symbol: {symbol}</p>
-            {/* Add your component logic here */}
+            <div>
+                
+            </div>
         </div>
     );
 };
-export default CompanyDetailsPage
+
+export default CompanyDetailsPage;

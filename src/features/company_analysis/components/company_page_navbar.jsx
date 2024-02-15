@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 
 const CompanyDetailsPageNavbar = () => {
     return (
-        <div>
-            <div className="w-full py-3 px-[3%] flex justify-between items-center">
+        <div className="sticky top-0 left-0  w-full bg-white z-50">
+            <div className="w-full py-2 px-[3%] flex justify-between items-center">
                 <div className="flex gap-6 items-center text-gray-800 text-lg font-fira-sans">
                     <Link to={'/'} className=" cursor-pointer tap">
                         <img src="/src/assets/images/capitallogo.png" className="object-cover h-12" />
@@ -20,7 +20,7 @@ const CompanyDetailsPageNavbar = () => {
 
                 </div>
             </div>
-            <div className="w-full p-2 bg-purple-300 flex items-center gap-7 text-[0.85rem] font-semibold font-open-sans">
+            <div className="w-full p-2 bg-purple-300 flex items-center gap-7 text-[0.85rem] font-semibold font-open-sans overflow-x-scroll break-before-avoid whitespace-nowrap">
                 <button className="tap">Charts</button>
                 <button className="tap">Analysis</button>
                 <button className="tap">Balance sheets</button>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const HomeNavbar = () => {
     return (
         <div className="w-full py-4 px-[6%] flex justify-between items-center">
-            <div className="flex gap-6 items-center text-white text-lg font-fira-sans">
+            <div className="flex gap-6 items-center  text-lg font-fira-sans">
                 <Link to={'/'} className=" cursor-pointer tap">home</Link>
                 <Link to={'/'} className=" cursor-pointer tap">product</Link>
                 <Link to={'/'} className=" cursor-pointer tap">support</Link>

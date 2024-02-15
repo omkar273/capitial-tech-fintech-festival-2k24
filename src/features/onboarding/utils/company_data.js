@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getCompanyDetails = async (query = 'tata') => {
+export const getCompaniesList = async (query = 'tata') => {
 
     const options = {
         method: 'GET',

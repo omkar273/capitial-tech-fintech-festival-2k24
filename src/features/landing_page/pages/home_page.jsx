@@ -1,6 +1,6 @@
 import Chatbot from '@/core/components/chatbot';
 import Spacer from '@/core/components/spacer';
-import { getCompanyDetails } from '@/features/onboarding/utils/company_data';
+import { getCompaniesList } from '@/features/onboarding/utils/company_data';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,9 +10,9 @@ const HomePage = () => {
     const [companiesList, setCompaniesList] = useState([]);
     const [query, setQuery] = useState('');
 
-    const searchCompanyDetails = async () => {
+    const searchCompanyiesList = async () => {
         console.log('inside search companies');
-        const res = await getCompanyDetails(query);
+        const res = await getCompaniesList(query);
         if (res !== null) {
             setCompaniesList(res);
         }
@@ -30,7 +30,7 @@ const HomePage = () => {
                 <Spacer height={15} />
                 <div className=' w-full md:w-1/2 relative'>
                     <div className=" w-full flex gap-4 px-4 py-3 bg-white rounded-md justify-center items-center">
-                        <div onClick={searchCompanyDetails}>
+                        <div onClick={searchCompanyiesList}>
                             <SearchIcon className='tap ' />
                         </div>
 
