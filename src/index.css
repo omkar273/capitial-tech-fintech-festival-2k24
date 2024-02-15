@@ -18,4 +18,8 @@
   .tap {
     @apply transition-transform transform active:scale-[1.02] hover:scale-100 cursor-pointer;
   }
+
+  .card {
+    @apply rounded-lg shadow-2xl p-4;
+  }
 }

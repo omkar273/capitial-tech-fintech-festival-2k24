@@ -25,8 +25,10 @@ const CompanyDetailsPage = () => {
     return (
         <div className='pg'>
             <CompanyDetailsPageNavbar />
-            <div>
-                
+            <div className='p-8'>
+                <div className='card min-h-[500px]'>
+                    content
+                </div>
             </div>
         </div>
     );
