@@ -1,5 +1,4 @@
 import Spacer from '@/core/components/spacer';
-import CandleGraph from '@/features/company_analysis/components/candle';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CompanyDetailsPageNavbar from '../components/company_page_navbar';
@@ -18,6 +17,15 @@ const CompanyDetailsPage = () => {
     };
 
     const [alphaVantageCompany, setalphaVantageCompany] = useState({})
+
+    const searchCompanyiesList = async () => {
+        console.log('inside search companies');
+        const res = await getCompaniesList(query);
+        if (res !== null) {
+            setCompaniesList(res);
+        }
+    };
+
     const [rapidCompany, setrapidCompany] = useState({
         "symbol": "AAPL:NASDAQ",
         "name": "Apple Inc",
@@ -36,6 +44,8 @@ const CompanyDetailsPage = () => {
         "currency": "USD",
         "google_mid": "/m/07zmbvf"
     })
+
+
     const getData = async () => {
         const res = await getCompanyDetails(symbol);
 
@@ -51,19 +61,19 @@ const CompanyDetailsPage = () => {
                 <div className='card bg-white p-6 font-open-sans'>
                     {/* company name and change percentage */}
                     <div className='w-full block md:flex md:gap-12 items-center   '>
-                        <p className='text-lg md:text-4xl font-semibold'>{alphaVantageCompany.Name}</p>
+                        <p className='text-lg md:text-2xl font-semibold'>{alphaVantageCompany.Name}</p>
                         <div>
-                            <p className='text-base font-semibold'>₹ {rapidCompany.price.toFixed(2)}
+                            <p className='text-[1rem] font-semibold'>₹ {rapidCompany.price.toFixed(2)}
                                 <span style={{
                                     color: rapidCompany.change_percent > 0 ?
                                         'green' : 'red',
                                     marginLeft: '0.5rem',
-                                    fontSize: '0.75rem'
+                                    fontSize: '0.5rem'
                                 }}>
                                     {rapidCompany.change_percent + ' %'}
                                 </span>
                             </p>
-                            <p className='text-[0.75rem]'>
+                            <p className='text-[0.65rem]'>
                                 {new Intl.DateTimeFormat("en-US", options).format(new Date(rapidCompany.exchange_close)) + ' - previous close price'}
                             </p>
                         </div>
@@ -73,7 +83,27 @@ const CompanyDetailsPage = () => {
                     {/* <div>
                         <OpenInBrowserIcon />
                     </div> */}
-                    
+
+                    {/* company details like pe ratio and about part */}
+                    <div className='w-full flex gap-4'>
+
+                        {/* ratios */}
+                        <div className='p-2 w-full grid grid-cols-3 gap-4 justify-center '>
+                            <div>Market cap : </div>
+                            <div>Current price : </div>
+                            <div>High / Low : </div>
+                            <div>PE ratio : </div>
+                            <div>Book value : </div>
+                            <div>Dividend : </div>
+                            <div>ROE  : </div>
+                        </div>
+
+                        {/* about */}
+                        <div className='p-2 w-full md:w-[40%]'>
+                            <p>About</p>
+                            <p className='text-[0.6rem]'>{alphaVantageCompany.Description}</p>
+                        </div>
+                    </div>
 
                 </div>
             </div>
