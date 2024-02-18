@@ -6,6 +6,7 @@ import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import AuthPage from './features/auth/pages/auth_page.jsx'
+import ChartsPage from './features/company_analysis/pages/charts.jsx'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
 import PrefferencesPage from './features/onboarding/pages/prefferences_page.jsx'
 import { themeSettings } from './theme.js'
@@ -29,6 +30,7 @@ const App = () => {
                 element={isLoggedIn ? < HomePage /> : <Navigate to={'/auth'} />} />
 
               <Route path='/on' element={<PrefferencesPage />} />
+              <Route path='/charts' element={<ChartsPage />} />
 
               <Route path='/company/:symbol' element={<CompanyDetailsPage />} />
 
