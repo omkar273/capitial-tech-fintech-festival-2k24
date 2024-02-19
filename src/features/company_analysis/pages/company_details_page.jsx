@@ -9,6 +9,12 @@ import CompanyDetailsPageNavbar from '../components/company_page_navbar';
 import { getCompanyDetails } from '../utils/get_company_details';
 import CandleStickChart from './../components/candle_stick_chart';
 
+import Footer from '@/core/components/footer';
+import BalanceSheetChart, { balance_sheet_labels, cashflow_sheet_labels, income_sheet_labels } from '../components/balance_sheet_table';
+import EarningsChart from '../components/earning_chart';
+
+
+
 const CompanyDetailsPage = () => {
     const { symbol } = useParams();
     const [companyDataList, setcompanyDataList] = useState([])
@@ -184,20 +190,17 @@ const CompanyDetailsPage = () => {
         )
     }
 
-    // stock price candlestick chart operations
-    const candleStickChartDurationList = ['1M', '6M', '1Yr', '3yr', '5yr', 'max'];
-    const [candleStickDuration, setcandleStickDuration] = useState(candleStickChartDurationList[0])
 
     const chartTypeList = ['Candle', 'Line']
     const [chartType, setchartType] = useState(chartTypeList[0])
 
     const [stockPriceTimeSeriesData, setstockPriceTimeSeriesData] = useState([])
-    const getCandleChartTimeSeriesData = async (duration = candleStickChartDurationList[0]) => {
+    const getCandleChartTimeSeriesData = async () => {
         const res = await axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=RELIANCE.BSE&outputsize=full&apikey=demo');
 
         let timeseriesData = [];
         if (res.status !== 200) {
-            alert('Unable to get candlestick data')
+            // alert('Unable to get candlestick data')
             return;
         }
         const timeseries = res.data['Time Series (Daily)'];
@@ -225,25 +228,26 @@ const CompanyDetailsPage = () => {
 
 
                     {/* company name and change percentage */}
-                    <div className='w-full block md:flex md:gap-12 items-center   '>
-                        <p className='text-lg md:text-2xl font-semibold'>{rapidCompany.name}</p>
+                    <div className='w-full block md:flex md:gap-12 items-center'>
+                        <p className='text-lg md:text-4xl font-semibold'>{rapidCompany.name}</p>
                         <div>
-                            <p className='text-[1rem] font-semibold'>₹ {rapidCompany.price.toFixed(2)}
+                            <p className='text-[1.25rem] font-semibold'>₹ {rapidCompany.price.toFixed(2)}
                                 <span style={{
                                     color: rapidCompany.change_percent > 0 ?
                                         'green' : 'red',
                                     marginLeft: '0.5rem',
-                                    fontSize: '0.5rem'
+                                    fontSize: '0.85rem'
                                 }}>
                                     {rapidCompany.change_percent + ' %'}
                                 </span>
                             </p>
-                            <p className='text-[0.65rem]'>
+                            <p className='text-[0.75rem]'>
                                 {new Intl.DateTimeFormat("en-US", options).format(new Date(rapidCompany.exchange_close)) + ' - previous close price'}
                             </p>
                         </div>
                     </div>
-                    <Spacer height={10} />
+
+                    <Spacer height={35} />
                     {/* company links */}
                     {/* <div>
                         <OpenInBrowserIcon />
@@ -253,9 +257,9 @@ const CompanyDetailsPage = () => {
                     <div className='w-full md:flex md:gap-8'>
 
                         {/* ratios */}
-                        <div className='p-2 w-full grid md:grid-cols-3 gap-x-8 gap-y-4 justify-center text-[0.75rem] text-gray-500 h-max'>
+                        <div className='p-4 rounded-md w-full grid md:grid-cols-3 gap-x-8 gap-y-4 justify-center text-[0.75rem] text-gray-500 h-max border-2'>
                             {companyDataList.map((element, index) => {
-                                return <div key={index} className='w-full text-[0.75rem] flex justify-between p-2 rounded-md bg-gray-100 '>
+                                return <div key={index} className={`w-full text-[0.85rem] flex justify-between p-3 rounded-md ${(index % 2 === 0) && 'bg-blue-50 bg-opacity-60 '}`}>
                                     <p>{element.title}</p>
                                     <p className='font-semibold'>{element.value}</p>
                                 </div>
@@ -264,20 +268,18 @@ const CompanyDetailsPage = () => {
 
                         {/* about */}
                         <div className='p-2 w-full md:w-[40%]'>
-                            <p>About</p>
-                            <p className='text-[0.8rem]'>{alphaVantageCompany.Description}</p>
+                            <p className='text-lg font-semibold py-2'>About</p>
+                            <p className='text-[0.9rem]'>{alphaVantageCompany.Description}</p>
                         </div>
                     </div>
 
                 </div>
 
-                <Spacer height={20} />
+                <Spacer height={35} />
 
 
-                {/* charts */}
+                {/*candle stick chart*/}
                 <div className='w-full bg-white  p-7 card'>
-
-                    {/* time suration selector such as 1m  6m 3yr 10yr max*/}
                     <div className='flex  items-center justify-between'>
 
                         <p className='inline-flex text-3xl font-fira-sans '>
@@ -303,11 +305,27 @@ const CompanyDetailsPage = () => {
                     <CandleStickChart
                         stockPriceTimeSeriesData={stockPriceTimeSeriesData}
                         chartType={chartType} />
-
-
                 </div>
-            </div>
+                <Spacer height={20} />
 
+                {/* eps graph */}
+                <EarningsChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='Earning per share' />
+                <Spacer height={20} />
+
+                {/* annual balance sheets */}
+                <BalanceSheetChart chartTitle='Balance Sheet' url='https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=IBM&apikey=demo' labelsList={balance_sheet_labels} />
+
+                {/* cash flows */}
+                <Spacer height={25} />
+                <BalanceSheetChart chartTitle='Cashflow' url='https://www.alphavantage.co/query?function=CASH_FLOW&symbol=IBM&apikey=demo' labelsList={cashflow_sheet_labels} />
+
+                {/* income sheet chart */}
+                <Spacer height={25} />
+                <BalanceSheetChart chartTitle='Income Statement' url='https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=IBM&apikey=demo' labelsList={income_sheet_labels} />
+                <Spacer height={50} />
+
+            </div>
+            <Footer />
         </div >
     );
 };

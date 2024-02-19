@@ -26,7 +26,6 @@ import {
     Tooltip,
     Trendlines,
 } from '@syncfusion/ej2-react-charts';
-import React from 'react';
 
 
 const CandleStickChart = ({ chartType, stockPriceTimeSeriesData }) => {
@@ -48,7 +47,7 @@ const CandleStickChart = ({ chartType, stockPriceTimeSeriesData }) => {
                 [
                     { text: '1M', interval: 1, intervalType: 'Months', selected: true },
                     { text: '3M', interval: 3, intervalType: 'Months' },
-                    { text: '6M', interval: 6, intervalType: 'Months' }, { text: 'YTD' },
+                    { text: '6M', interval: 6, intervalType: 'Months' },
                     { text: '1Y', interval: 1, intervalType: 'Years' },
                     { text: '2Y', interval: 2, intervalType: 'Years' }, { text: 'All' }
                 ]

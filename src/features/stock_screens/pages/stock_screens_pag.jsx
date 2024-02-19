@@ -86,6 +86,7 @@ const StockScreenPage = () => {
                         <br></br>
 
                         <div className='blackBorder card' style={{ border: '1px solid black' }}>
+
                             Popular Formulas
                             Screening formulas Based on book
 
