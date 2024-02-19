@@ -17,6 +17,7 @@
     "@mui/material": "^5.11.13",
     "@reduxjs/toolkit": "^1.9.3",
     "@syncfusion/ej2": "^24.2.6",
+    "@syncfusion/ej2-react-charts": "^24.2.5",
     "axios": "^1.6.7",
     "dotenv": "^16.0.3",
     "firebase": "^10.8.0",

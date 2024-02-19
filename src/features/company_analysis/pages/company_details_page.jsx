@@ -1,4 +1,35 @@
 import Spacer from '@/core/components/spacer';
+
+import { getCompaniesList } from '@/features/onboarding/utils/company_data';
+import {
+    AccumulationDistributionIndicator,
+    AtrIndicator,
+    BollingerBands,
+    CandleSeries,
+    Crosshair,
+    DateTime,
+    EmaIndicator,
+    Export,
+    HiloOpenCloseSeries,
+    HiloSeries,
+    Inject,
+    LineSeries,
+    MacdIndicator,
+    MomentumIndicator,
+    RangeAreaSeries,
+    RangeTooltip,
+    RsiIndicator,
+    SmaIndicator,
+    SplineSeries,
+    StochasticIndicator,
+    StockChartComponent,
+    StockChartSeriesCollectionDirective,
+    StockChartSeriesDirective,
+    TmaIndicator,
+    Tooltip,
+    Trendlines,
+} from '@syncfusion/ej2-react-charts';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CompanyDetailsPageNavbar from '../components/company_page_navbar';
@@ -8,24 +39,12 @@ const CompanyDetailsPage = () => {
     const { symbol } = useParams();
     const [companyDataList, setcompanyDataList] = useState([])
 
-    useEffect(() => {
-        getData()
-    }, [])
-
     const options = {
         month: "long",
         day: "numeric",
     };
 
-    const [alphaVantageCompany, setalphaVantageCompany] = useState({})
 
-    const searchCompanyiesList = async () => {
-        console.log('inside search companies');
-        const res = await getCompaniesList(query);
-        if (res !== null) {
-            setCompaniesList(res);
-        }
-    };
 
     const [rapidCompany, setrapidCompany] = useState({
         "symbol": "AAPL:NASDAQ",
@@ -46,7 +65,21 @@ const CompanyDetailsPage = () => {
         "google_mid": "/m/07zmbvf"
     })
 
+    const getStockInfo = async () => {
+        console.log('inside search companies');
+        const res = await getCompaniesList(symbol);
+        if (res !== null) {
+            setrapidCompany(res[0]);
+        }
+    };
 
+    useEffect(() => {
+        getData()
+        getCandleChartTimeSeriesData()
+        // getStockInfo();
+    }, [])
+
+    const [alphaVantageCompany, setalphaVantageCompany] = useState({})
     const getData = async () => {
         const res = await getCompanyDetails(symbol);
         setalphaVantageCompany(res)
@@ -177,14 +210,47 @@ const CompanyDetailsPage = () => {
         )
     }
 
+    // stock price candlestick chart operations
+    const candleStickChartDurationList = ['1M', '6M', '1Yr', '3yr', '5yr', 'max'];
+    const [candleStickDuration, setcandleStickDuration] = useState(candleStickChartDurationList[0])
+
+    const chartTypeList = ['Candle', 'Line']
+    const [chartType, setchartType] = useState(chartTypeList[0])
+
+    const [stockPriceTimeSeriesData, setstockPriceTimeSeriesData] = useState([])
+    const getCandleChartTimeSeriesData = async (duration = candleStickChartDurationList[0]) => {
+        const res = await axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo');
+
+        let timeseriesData = [];
+        if (res.status !== 200) {
+            alert('Unable to get candlestick data')
+            return;
+        }
+        const timeseries = res.data['Time Series (5min)'];
+        for (let key in timeseries) {
+
+            timeseriesData.push({
+                x: new Date(key),
+                open: parseFloat(timeseries[key]["1. open"], 10),
+                high: parseFloat(timeseries[key]["2. high"], 10),
+                low: parseFloat(timeseries[key]["3. low"], 10),
+                close: parseFloat(timeseries[key]["4. close"], 10),
+                volume: parseFloat(timeseries[key]["5. volume"], 10)
+            })
+        }
+        setstockPriceTimeSeriesData(timeseriesData)
+    }
+
     return (
         <div className='pg bg-[#dce4efcc]'>
             <CompanyDetailsPageNavbar />
             <div className='md:p-6 p-4'>
                 <div className='card bg-white p-6 font-open-sans'>
+
+
                     {/* company name and change percentage */}
                     <div className='w-full block md:flex md:gap-12 items-center   '>
-                        <p className='text-lg md:text-2xl font-semibold'>{alphaVantageCompany.Name}</p>
+                        <p className='text-lg md:text-2xl font-semibold'>{rapidCompany.name}</p>
                         <div>
                             <p className='text-[1rem] font-semibold'>₹ {rapidCompany.price.toFixed(2)}
                                 <span style={{
@@ -208,12 +274,12 @@ const CompanyDetailsPage = () => {
                     </div> */}
 
                     {/* company details like pe ratio and about part */}
-                    <div className='w-full flex gap-4'>
+                    <div className='w-full md:flex md:gap-8'>
 
                         {/* ratios */}
-                        <div className='p-2 w-full grid grid-cols-3 gap-4 justify-center text-[0.6rem] text-gray-500 h-max'>
+                        <div className='p-2 w-full grid grid-cols-3 gap-x-8 gap-y-4 justify-center text-[0.75rem] text-gray-500 h-max'>
                             {companyDataList.map((element, index) => {
-                                return <div key={index} className='w-full flex justify-between p-2 rounded-md bg-gray-100 '>
+                                return <div key={index} className='w-full text-[0.75rem] flex justify-between p-2 rounded-md bg-gray-100 '>
                                     <p>{element.title}</p>
                                     <p className='font-semibold'>{element.value}</p>
                                 </div>
@@ -223,14 +289,136 @@ const CompanyDetailsPage = () => {
                         {/* about */}
                         <div className='p-2 w-full md:w-[40%]'>
                             <p>About</p>
-                            <p className='text-[0.6rem]'>{alphaVantageCompany.Description}</p>
+                            <p className='text-[0.8rem]'>{alphaVantageCompany.Description}</p>
                         </div>
                     </div>
 
                 </div>
+
+                <Spacer height={20} />
+
+
+                {/* charts */}
+                <div className='w-full bg-white  p-7 card'>
+
+                    {/* time suration selector such as 1m  6m 3yr 10yr max*/}
+                    <div className='md:flex justify-between'>
+                        <div className='inline-flex'>
+                            {candleStickChartDurationList.map((duration, index) =>
+                                <div className='p-1 px-3 cursor-pointer'
+                                    key={index}
+                                    onClick={() => setcandleStickDuration(duration)}
+                                    style={candleStickDuration === duration ? {
+                                        backgroundColor: '#e6e9f0',
+                                        fontWeight: 600,
+                                        borderRadius: '0.5rem'
+                                    } : {}}
+                                >
+                                    {duration}
+                                </div>
+                            )}
+                        </div>
+                        <div className='inline-flex'>
+                            {chartTypeList.map((type, index) =>
+                                <div className='p-2 px-3 cursor-pointer'
+                                    key={index}
+                                    onClick={() => setchartType(type)}
+                                    style={chartType === type ? {
+                                        backgroundColor: '#e6e9f0',
+                                        fontWeight: 600,
+                                        borderRadius: '0.5rem'
+                                    } : {}}
+                                >
+                                    {type}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    <Spacer height={20} />
+                    <StockChartComponent title=''
+
+                        crosshair={{ enable: true, lineType: 'Both' }}
+                        primaryXAxis={{
+                            valueType: 'DateTime',
+                            majorGridLines: { width: 0 },
+                            majorTickLines: { color: 'transparent' },
+                            crosshairTooltip: { enable: true }
+                        }}
+                        tooltip={{
+                            enable: true,
+                            shared: true,
+                            position: 'Nearest',
+                            header: 'stock price',
+                        }}
+
+                        enableSelector={true}
+                        zoomSettings={{
+                            enableMouseWheelZooming: true,
+                            showToolbar: true,
+                            enableSelectionZooming: true,
+                        }}
+                        exportType={['JPEG', 'CSV', 'PDF']}
+                        periods={[
+                            { text: '12H', interval: 2, intervalType: 'Hours', selected: true }
+                        ]}
+                        primaryYAxis={{
+                            labelFormat: 'n0',
+                            lineStyle: { width: 1 }, rangePadding: 'None',
+                            majorTickLines: { width: 0 }
+                        }}
+                        width='100%'
+                        enablePeriodSelector={false}
+                        indicatorType={[]} trendlineType={[]}
+                    >
+
+                        <StockChartSeriesCollectionDirective>
+
+                            <StockChartSeriesDirective
+                                type={chartType}
+                                dataSource={stockPriceTimeSeriesData}
+                                xName='x'
+                                enableSolidCandles:true
+
+                            >
+
+                            </StockChartSeriesDirective>
+
+                        </StockChartSeriesCollectionDirective>
+
+
+                        <Inject services={[
+                            DateTime,
+                            Tooltip,
+                            RangeTooltip,
+                            Crosshair,
+                            LineSeries,
+                            SplineSeries,
+                            CandleSeries,
+                            HiloOpenCloseSeries,
+                            HiloSeries,
+                            RangeAreaSeries,
+                            Trendlines,
+                            EmaIndicator,
+                            RsiIndicator,
+                            BollingerBands,
+                            TmaIndicator,
+                            MomentumIndicator,
+                            SmaIndicator,
+                            AtrIndicator,
+                            Export,
+                            AccumulationDistributionIndicator,
+                            MacdIndicator,
+                            StochasticIndicator,
+                        ]} />
+
+                    </StockChartComponent>
+
+
+
+                </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 

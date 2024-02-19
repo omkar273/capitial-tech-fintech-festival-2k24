@@ -9,6 +9,9 @@ import AuthPage from './features/auth/pages/auth_page.jsx'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
 import PrefferencesPage from './features/onboarding/pages/prefferences_page.jsx'
 import { themeSettings } from './theme.js'
+
+
+
 const App = () => {
 
   const mode = useSelector((state) => state.mode);

@@ -21,6 +21,10 @@ import authReducer from "./redux_store/store.js";
 import App from "./App";
 import "./index.css";
 
+/* syncfusion ejs2 charting lib */
+import { registerLicense } from '@syncfusion/ej2-base';
+registerLicense('ORg4AjUWIQA/Gnt2UVhiQlJPdUBAXXxLflFyVWFTfV96dlBWESFaRnZdRl1hSHdTdEdnWnpaeHJT');
+
 const persistConfig = { key: "root", storage, version: 1 };
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
