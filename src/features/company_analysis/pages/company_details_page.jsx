@@ -1,39 +1,13 @@
 import Spacer from '@/core/components/spacer';
 
 import { getCompaniesList } from '@/features/onboarding/utils/company_data';
-import {
-    AccumulationDistributionIndicator,
-    AtrIndicator,
-    BollingerBands,
-    CandleSeries,
-    Crosshair,
-    DateTime,
-    EmaIndicator,
-    Export,
-    HiloOpenCloseSeries,
-    HiloSeries,
-    Inject,
-    LineSeries,
-    MacdIndicator,
-    MomentumIndicator,
-    RangeAreaSeries,
-    RangeTooltip,
-    RsiIndicator,
-    SmaIndicator,
-    SplineSeries,
-    StochasticIndicator,
-    StockChartComponent,
-    StockChartSeriesCollectionDirective,
-    StockChartSeriesDirective,
-    TmaIndicator,
-    Tooltip,
-    Trendlines,
-} from '@syncfusion/ej2-react-charts';
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CompanyDetailsPageNavbar from '../components/company_page_navbar';
 import { getCompanyDetails } from '../utils/get_company_details';
+import CandleStickChart from './../components/candle_stick_chart';
 
 const CompanyDetailsPage = () => {
     const { symbol } = useParams();
@@ -219,14 +193,14 @@ const CompanyDetailsPage = () => {
 
     const [stockPriceTimeSeriesData, setstockPriceTimeSeriesData] = useState([])
     const getCandleChartTimeSeriesData = async (duration = candleStickChartDurationList[0]) => {
-        const res = await axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo');
+        const res = await axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=RELIANCE.BSE&outputsize=full&apikey=demo');
 
         let timeseriesData = [];
         if (res.status !== 200) {
             alert('Unable to get candlestick data')
             return;
         }
-        const timeseries = res.data['Time Series (5min)'];
+        const timeseries = res.data['Time Series (Daily)'];
         for (let key in timeseries) {
 
             timeseriesData.push({
@@ -240,6 +214,8 @@ const CompanyDetailsPage = () => {
         }
         setstockPriceTimeSeriesData(timeseriesData)
     }
+
+
 
     return (
         <div className='pg bg-[#dce4efcc]'>
@@ -277,7 +253,7 @@ const CompanyDetailsPage = () => {
                     <div className='w-full md:flex md:gap-8'>
 
                         {/* ratios */}
-                        <div className='p-2 w-full grid grid-cols-3 gap-x-8 gap-y-4 justify-center text-[0.75rem] text-gray-500 h-max'>
+                        <div className='p-2 w-full grid md:grid-cols-3 gap-x-8 gap-y-4 justify-center text-[0.75rem] text-gray-500 h-max'>
                             {companyDataList.map((element, index) => {
                                 return <div key={index} className='w-full text-[0.75rem] flex justify-between p-2 rounded-md bg-gray-100 '>
                                     <p>{element.title}</p>
@@ -302,22 +278,11 @@ const CompanyDetailsPage = () => {
                 <div className='w-full bg-white  p-7 card'>
 
                     {/* time suration selector such as 1m  6m 3yr 10yr max*/}
-                    <div className='md:flex justify-between'>
-                        <div className='inline-flex'>
-                            {candleStickChartDurationList.map((duration, index) =>
-                                <div className='p-1 px-3 cursor-pointer'
-                                    key={index}
-                                    onClick={() => setcandleStickDuration(duration)}
-                                    style={candleStickDuration === duration ? {
-                                        backgroundColor: '#e6e9f0',
-                                        fontWeight: 600,
-                                        borderRadius: '0.5rem'
-                                    } : {}}
-                                >
-                                    {duration}
-                                </div>
-                            )}
-                        </div>
+                    <div className='flex  items-center justify-between'>
+
+                        <p className='inline-flex text-3xl font-fira-sans '>
+                            Stock Price
+                        </p>
                         <div className='inline-flex'>
                             {chartTypeList.map((type, index) =>
                                 <div className='p-2 px-3 cursor-pointer'
@@ -335,84 +300,9 @@ const CompanyDetailsPage = () => {
                         </div>
                     </div>
                     <Spacer height={20} />
-                    <StockChartComponent title=''
-
-                        crosshair={{ enable: true, lineType: 'Both' }}
-                        primaryXAxis={{
-                            valueType: 'DateTime',
-                            majorGridLines: { width: 0 },
-                            majorTickLines: { color: 'transparent' },
-                            crosshairTooltip: { enable: true }
-                        }}
-                        tooltip={{
-                            enable: true,
-                            shared: true,
-                            position: 'Nearest',
-                            header: 'stock price',
-                        }}
-
-                        enableSelector={true}
-                        zoomSettings={{
-                            enableMouseWheelZooming: true,
-                            showToolbar: true,
-                            enableSelectionZooming: true,
-                        }}
-                        exportType={['JPEG', 'CSV', 'PDF']}
-                        periods={[
-                            { text: '12H', interval: 2, intervalType: 'Hours', selected: true }
-                        ]}
-                        primaryYAxis={{
-                            labelFormat: 'n0',
-                            lineStyle: { width: 1 }, rangePadding: 'None',
-                            majorTickLines: { width: 0 }
-                        }}
-                        width='100%'
-                        enablePeriodSelector={false}
-                        indicatorType={[]} trendlineType={[]}
-                    >
-
-                        <StockChartSeriesCollectionDirective>
-
-                            <StockChartSeriesDirective
-                                type={chartType}
-                                dataSource={stockPriceTimeSeriesData}
-                                xName='x'
-                                enableSolidCandles:true
-
-                            >
-
-                            </StockChartSeriesDirective>
-
-                        </StockChartSeriesCollectionDirective>
-
-
-                        <Inject services={[
-                            DateTime,
-                            Tooltip,
-                            RangeTooltip,
-                            Crosshair,
-                            LineSeries,
-                            SplineSeries,
-                            CandleSeries,
-                            HiloOpenCloseSeries,
-                            HiloSeries,
-                            RangeAreaSeries,
-                            Trendlines,
-                            EmaIndicator,
-                            RsiIndicator,
-                            BollingerBands,
-                            TmaIndicator,
-                            MomentumIndicator,
-                            SmaIndicator,
-                            AtrIndicator,
-                            Export,
-                            AccumulationDistributionIndicator,
-                            MacdIndicator,
-                            StochasticIndicator,
-                        ]} />
-
-                    </StockChartComponent>
-
+                    <CandleStickChart
+                        stockPriceTimeSeriesData={stockPriceTimeSeriesData}
+                        chartType={chartType} />
 
 
                 </div>
