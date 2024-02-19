@@ -16,7 +16,7 @@ const CompanyDetailsPageNavbar = () => {
                 </div>
                 <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden">
                     <div onClick={handleLogout}
-                        className="tap p-5 font-semibold border-blue-500 text-white w-8 h-8 flex justify-center items-center rounded-full  bg-purple-500">p</div>
+                        className="tap p-5 font-semibold border-blue-500 text-white w-8 h-8 flex justify-center items-center rounded-full  bg-purple-500">o</div>
 
                 </div>
             </div>

@@ -6,6 +6,7 @@ import { getCompanyDetails } from '../utils/get_company_details';
 
 const CompanyDetailsPage = () => {
     const { symbol } = useParams();
+    const [companyDataList, setcompanyDataList] = useState([])
 
     useEffect(() => {
         getData()
@@ -48,10 +49,132 @@ const CompanyDetailsPage = () => {
 
     const getData = async () => {
         const res = await getCompanyDetails(symbol);
-
         setalphaVantageCompany(res)
-        console.log(`res in page `);
-        console.log(res);
+        setcompanyDataList(
+            [
+                {
+                    'title': 'Market Cap  : ',
+                    'value': res['MarketCapitalization'] + ' ₹ '
+                },
+                {
+                    'title': 'PE Ratio  : ',
+                    'value': res['PERatio'] + ' %'
+                },
+                {
+                    'title': ' PEG Ratio : ',
+                    'value': res['PEGRatio'] + ' %'
+                },
+                {
+                    'title': 'Book Value : ',
+                    'value': res['BookValue']
+                },
+                {
+                    'title': 'Dividend Per Share  : ',
+                    'value': res['DividendPerShare'] + ' ₹ '
+                },
+                {
+                    'title': 'Dividend Yield  : ',
+                    'value': res['DividendYield'] + ' %'
+                },
+                {
+                    'title': 'Earning Per Share : ',
+                    'value': res['EPS']
+                },
+                {
+                    'title': 'Revenue Per Share TTM : ',
+                    'value': res['RevenuePerShareTTM']
+                },
+                {
+                    'title': 'Profit Margin  : ',
+                    'value': res['ProfitMargin'] + ' %'
+                },
+                {
+                    'title': 'Operating Marg in TTM : ',
+                    'value': res['OperatingMarginTTM']
+                },
+                {
+                    'title': 'Return On Assets TTM : ',
+                    'value': res['ReturnOnAssetsTTM'] + ' %'
+                },
+                {
+                    'title': 'Return On Equity TTM : ',
+                    'value': res['ReturnOnEquityTTM'] + ' %'
+                },
+                {
+                    'title': 'Revenue TTM : ',
+                    'value': res['RevenueTTM'] + ' %'
+                },
+                {
+                    'title': 'Gross Profit TTM : ',
+                    'value': res['GrossProfitTTM'] + ' %'
+                },
+                {
+                    'title': 'DilutedEPSTTM : ',
+                    'value': res['DilutedEPSTTM'] + ' %'
+                },
+                {
+                    'title': 'Quarterly Earnings Growth YOY : ',
+                    'value': res['QuarterlyEarningsGrowthYOY'] + ' %'
+                },
+                {
+                    'title': 'Quarterly Revenue Growth YOY : ',
+                    'value': res['QuarterlyRevenueGrowthYOY'] + ' %'
+                },
+                {
+                    'title': 'Analyst Target Price : ',
+                    'value': res['AnalystTargetPrice'] + ' %'
+                },
+                {
+                    'title': 'Trailing PE : ',
+                    'value': res['TrailingPE'] + ' %'
+                },
+                {
+                    'title': 'Forward PE : ',
+                    'value': res['ForwardPE']
+                },
+                {
+                    'title': 'Price To Sales Ratio TTM : ',
+                    'value': res['PriceToSalesRatioTTM']
+                },
+                {
+                    'title': 'Price To Book Ratio : ',
+                    'value': res['PriceToBookRatio'] + ' %'
+                },
+                {
+                    'title': 'EV To Revenue : ',
+                    'value': res['EVToRevenue'] + ' %'
+                },
+                {
+                    'title': 'EV To EBITDA : ',
+                    'value': res['EVToEBITDA'] + ' %'
+                },
+                {
+                    'title': '52 Week High / Low  : ',
+                    'value': `${res['52WeekHigh']} / ${res['52WeekLow']}`
+                },
+
+                {
+                    'title': '50 Day Moving Average : ',
+                    'value': res['50DayMovingAverage']
+                },
+                {
+                    'title': '200 Day Moving Average : ',
+                    'value': res['200DayMovingAverage']
+                },
+                {
+                    'title': 'Shares Outstanding : ',
+                    'value': res['SharesOutstanding']
+                },
+                {
+                    'title': 'Dividend Date : ',
+                    'value': res['DividendDate']
+                },
+                {
+                    'title': 'Ex Dividend Date : ',
+                    'value': res['ExDividendDate']
+                },
+            ]
+        )
     }
 
     return (
@@ -88,14 +211,13 @@ const CompanyDetailsPage = () => {
                     <div className='w-full flex gap-4'>
 
                         {/* ratios */}
-                        <div className='p-2 w-full grid grid-cols-3 gap-4 justify-center '>
-                            <div>Market cap : </div>
-                            <div>Current price : </div>
-                            <div>High / Low : </div>
-                            <div>PE ratio : </div>
-                            <div>Book value : </div>
-                            <div>Dividend : </div>
-                            <div>ROE  : </div>
+                        <div className='p-2 w-full grid grid-cols-3 gap-4 justify-center text-[0.6rem] text-gray-500 h-max'>
+                            {companyDataList.map((element, index) => {
+                                return <div key={index} className='w-full flex justify-between p-2 rounded-md bg-gray-100 '>
+                                    <p>{element.title}</p>
+                                    <p className='font-semibold'>{element.value}</p>
+                                </div>
+                            })}
                         </div>
 
                         {/* about */}

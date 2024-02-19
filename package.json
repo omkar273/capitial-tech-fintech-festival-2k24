@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.13",
     "@reduxjs/toolkit": "^1.9.3",
+    "@syncfusion/ej2": "^24.2.6",
     "axios": "^1.6.7",
     "dotenv": "^16.0.3",
     "firebase": "^10.8.0",
