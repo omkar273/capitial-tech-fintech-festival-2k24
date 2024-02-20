@@ -4,6 +4,7 @@ import { getCompaniesList } from '@/features/onboarding/utils/company_data';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import capitalLogo from '../../../assets/images/capitallogo.png';
 import HomeNavbar from "../components/homepage_navbar";
 
 const HomePage = () => {
@@ -24,7 +25,7 @@ const HomePage = () => {
                 <HomeNavbar />
             </div>
             <div className="pg p-4 flex flex-col md:justify-center py-8 md:py-0 items-center">
-                <img src="../../../assets/images/capitallogo.png" />
+                <img src={capitalLogo} />
 
                 <Spacer height={15} />
                 <div className=' w-full md:w-1/2 relative'>

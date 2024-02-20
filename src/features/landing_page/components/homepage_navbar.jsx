@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom"
+import { handleLogout } from "@/core/firebase/auth";
 import { Avatar } from 'antd';
+import { Link } from "react-router-dom";
 const HomeNavbar = () => {
     return (
         <div className="w-full py-4 px-[6%] flex justify-between items-center">
@@ -10,10 +11,12 @@ const HomeNavbar = () => {
                 <Link to={'/'} className=" cursor-pointer tap">about</Link>
             </div>
             <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden">
-                <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" >
-                    {'O'}
-                </Avatar>
+                <button onClick={handleLogout}>
+                    <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" >
+                        {'O'}
+                    </Avatar>
 
+                </button>
             </div>
         </div>
     )

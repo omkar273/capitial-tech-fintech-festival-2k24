@@ -3,6 +3,7 @@ import Spacer from '@/core/components/spacer';
 import { handleGoogleSignIn } from '@/core/firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CapitaltechLogo from "../../../assets/images/capitallogo.png";
 import InputField from '../components/input_field';
 
 const AuthPage = () => {
@@ -11,13 +12,16 @@ const AuthPage = () => {
 
     const signInWithGoogle = async () => {
         setloading(true);
+        console.log('inside login');
         try {
             const user = await handleGoogleSignIn();
+            console.log(user);
             if (user != null) {
-                navigate('/');
+                console.log('user logged in');
+                window.location = '/'
             }
         } catch (error) {
-
+            console.log(error);
         }
         setloading(false);
     }
@@ -26,7 +30,7 @@ const AuthPage = () => {
     return (
         <div className="gr-pg md:flex justify-center">
             <div className="w-full md:w-1/2 md:sticky md:top-0 p-4">
-                <img src="../../../assets/images/capitallogo.png" className='object-cover h-20' />
+                <img src={CapitaltechLogo} className='object-cover h-20' />
             </div>
 
             {/* login */}
