@@ -11,7 +11,6 @@ const HomePage = () => {
     const [query, setQuery] = useState('');
 
     const searchCompanyiesList = async () => {
-        console.log('inside search companies');
         const res = await getCompaniesList(query);
         if (res !== null) {
             setCompaniesList(res);

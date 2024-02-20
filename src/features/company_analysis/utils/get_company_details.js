@@ -9,7 +9,6 @@ export const getCompanyDetails = async (symbol) => {
         url = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo'
         const res = await axios.get(url);
 
-        console.log(res.data);
         return res.data;
     } catch (error) {
         console.log(error);

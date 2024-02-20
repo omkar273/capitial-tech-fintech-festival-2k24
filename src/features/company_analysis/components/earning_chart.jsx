@@ -1,7 +1,10 @@
 import Spacer from '@/core/components/spacer';
+import { Select } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
+
+
 const EarningsChart = ({ chartTitle = '', url = '' }) => {
     const [data, setdata] = useState([])
     const [loading, setLoading] = useState(true);
@@ -13,11 +16,8 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
     const getData = async () => {
         try {
             const res = await axios.get(url);
-            console.log(res);
             if (res.status === 200) {
                 setdata(res.data.annualEarnings)
-                console.log('setting data');
-                console.log(res.data.annualEarnings);
                 setdataSource(res.data)
             }
         } catch (error) {
@@ -25,6 +25,54 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
         } finally {
             setLoading(false);
         }
+    }
+
+    // rendering diff type of series data in single graph
+    const seriesType = [
+        {
+            'label': 'Reported Eps',
+            'value': 'reportedEPS'
+        },
+        {
+            'label': 'Estimated Eps',
+            'value': 'estimatedEPS',
+        },
+        {
+            'label': 'Surprise',
+            'value': 'surprise'
+        },
+        {
+            'label': 'Surprise Percentage',
+            'value': 'surprisePercentage'
+        },
+    ]
+    const [seriesTypeValues, setseriesTypeValues] = useState([seriesType[0].value])
+    const getSeriesData = () => {
+        return [
+
+            {
+                name: 'Reported Eps',
+                data: seriesTypeValues.includes('reportedEPS') ? data?.map((element, index) => element.reportedEPS) : [],
+                color: '#00ff00'
+            },
+            {
+                name: 'Estimated Eps',
+                data: (seriesTypeValues.includes('estimatedEPS')) ? (data?.map((element, index) => element.estimatedEPS)) : [],
+                color: '#ffff00'
+            },
+            {
+                name: 'Surprise',
+                data: (seriesTypeValues.includes('surprise')) ? data?.map((element, index) => element.surprise) : [],
+                color: '#ff3300'
+            },
+            {
+                name: 'Surprise Percentage',
+                data: (seriesTypeValues.includes('surprisePercentage')) ? data?.map((element, index) => element.surprisePercentage) : [],
+                color: '#0040ff'
+            },
+
+
+        ]
     }
 
     useEffect(() => {
@@ -38,12 +86,13 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
                         {(durationType === 'Annual') ? 'Annual ' : 'Quarterly '} {chartTitle}
                     </p>
 
-                    <div className='inline-flex '>
+                    <div className='inline-flex gap-4'>
                         {durationTypeList.map((type, index) =>
                             <div className='p-2 px-3 cursor-pointer'
                                 key={index}
                                 onClick={() => {
                                     setdurationType(type)
+                                    setseriesTypeValues([seriesType[0].value])
                                     setdata(type === 'Annual' ? dataSource.annualEarnings : dataSource.quarterlyEarnings)
                                 }}
                                 style={durationType === type ? {
@@ -55,17 +104,31 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
                                 {type}
                             </div>
                         )}
+
                     </div>
                 </div>
-
             </div>
+
             <Spacer height={25} />
-            {!loading && <Chart series={[
-                {
-                    name: 'Eps',
-                    data: data?.map((element, index) => element.reportedEPS)
-                }
-            ]}
+            {/* series selection */}
+            <div className='w-max min-w-40' >
+                <Select
+                    mode="multiple"
+                    allowClear
+                    placeholder="Graph Type"
+                    className='w-full'
+                    defaultValue={[seriesType[0].value]}
+                    options={durationType != 'Annual' ? seriesType : [seriesType[0]]}
+                    onSelect={(values) => console.log(values)}
+                    onChange={(values) => {
+                        console.log(values);
+                        setseriesTypeValues(values)
+                    }}
+                />
+            </div>
+
+            <Spacer height={10} />
+            {!loading && <Chart series={getSeriesData()}
                 type='line'
                 height={500}
 

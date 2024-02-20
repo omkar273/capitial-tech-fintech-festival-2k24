@@ -13,7 +13,6 @@ export const handleLogout = async () => {
     await signOut(auth);
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    console.log(getUser());
     
 };
 

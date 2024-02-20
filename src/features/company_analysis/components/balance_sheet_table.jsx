@@ -18,9 +18,7 @@ const BalanceSheetChart = ({ chartTitle = '',
     const getData = async () => {
         try {
             const res = await axios.get(url);
-            console.log(res);
             if (res.status === 200) {
-                console.log('status code okay');
                 setdata(res.data.annualReports)
                 setdataSource(res.data)
             }

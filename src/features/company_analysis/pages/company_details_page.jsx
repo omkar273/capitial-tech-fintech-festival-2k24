@@ -46,7 +46,6 @@ const CompanyDetailsPage = () => {
     })
 
     const getStockInfo = async () => {
-        console.log('inside search companies');
         const res = await getCompaniesList(symbol);
         if (res !== null) {
             setrapidCompany(res[0]);

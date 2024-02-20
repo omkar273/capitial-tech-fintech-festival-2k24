@@ -1,22 +1,18 @@
 
 import Spacer from '@/core/components/spacer';
 import { handleGoogleSignIn } from '@/core/firebase/auth';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import InputField from '../components/input_field';
 
 const AuthPage = () => {
     const navigate = useNavigate();
     const [loading, setloading] = useState(false)
-    useEffect(() => {
-        console.log(localStorage.getItem('email'));
-    }, [])
 
     const signInWithGoogle = async () => {
         setloading(true);
         try {
             const user = await handleGoogleSignIn();
-            console.log(user);
             if (user != null) {
                 navigate('/');
             }
