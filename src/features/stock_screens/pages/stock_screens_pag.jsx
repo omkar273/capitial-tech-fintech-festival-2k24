@@ -1,4 +1,4 @@
-import CompanyDetailsPageNavbar from '../components/company_page_navbar';
+import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
 
 const categories = [
     "Alcohol beverages",

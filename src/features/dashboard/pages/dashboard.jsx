@@ -1,9 +1,9 @@
-import CompanyDetailsPageNavbar from '../components/company_page_navbar';
+import DashboardNavbar from '../components/dashboard_navbar';
 
-const Dashboard = () => {
+const DashboardPage = () => {
     return (
         <div className='pg bg-white]'>
-            <CompanyDetailsPageNavbar />
+            <DashboardNavbar />
             <br></br>
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: '70%', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '20px' }}>
@@ -94,4 +94,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default DashboardPage

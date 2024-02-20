@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
 module.exports = {
   content: [
     "./index.html",
@@ -13,6 +14,9 @@ module.exports = {
         'poppins': 'Poppins',
         'pt-sans': 'PT Sans',
         'ubuntu': 'Ubuntu',
+      },
+      colors: {
+        primary: colors.blue
       }
     },
   },

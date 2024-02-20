@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import AuthPage from './features/auth/pages/auth_page.jsx'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
-import Dashboard from './features/dashboard/pages/dashboard.jsx'
+import DashboardPage from './features/dashboard/pages/dashboard.jsx'
 import { themeSettings } from './theme.js'
 
 
@@ -32,7 +32,7 @@ const App = () => {
               <Route path='/'
                 element={isLoggedIn ? < HomePage /> : <Navigate to={'/auth'} />} />
 
-              <Route path='/on' element={<Dashboard />} />
+              <Route path='/dashboard' element={<DashboardPage />} />
 
               <Route path='/company/:symbol' element={<CompanyDetailsPage />} />
 

@@ -1,4 +1,3 @@
-import { handleLogout } from "@/core/firebase/auth"
 import { Link } from "react-router-dom"
 
 const CompanyDetailsPageNavbar = () => {
@@ -15,8 +14,7 @@ const CompanyDetailsPageNavbar = () => {
                     <Link to={'/'} className=" cursor-pointer tap">about</Link>
                 </div>
                 <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden">
-                    <div onClick={handleLogout}
-                        className="tap p-1 font-semibold border-blue-500 text-white w-8 h-8 flex justify-center items-center rounded-full  bg-purple-500">o</div>
+                    <div className="tap p-1 font-semibold border-blue-500 text-white w-8 h-8 flex justify-center items-center rounded-full  bg-purple-500">o</div>
 
                 </div>
             </div>
@@ -32,7 +30,7 @@ const CompanyDetailsPageNavbar = () => {
                 <button className="tap">Documents</button>
 
             </div>
-        </div>
+        </div >
 
     )
 }

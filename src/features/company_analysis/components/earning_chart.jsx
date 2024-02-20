@@ -52,22 +52,22 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
 
             {
                 name: 'Reported Eps',
-                data: seriesTypeValues.includes('reportedEPS') ? data?.map((element, index) => element.reportedEPS) : [],
+                data: seriesTypeValues.includes('reportedEPS') ? data?.map((element) => element.reportedEPS) : [],
                 color: '#00ff00'
             },
             {
                 name: 'Estimated Eps',
-                data: (seriesTypeValues.includes('estimatedEPS')) ? (data?.map((element, index) => element.estimatedEPS)) : [],
+                data: (seriesTypeValues.includes('estimatedEPS')) ? (data?.map((element) => element.estimatedEPS)) : [],
                 color: '#ffff00'
             },
             {
                 name: 'Surprise',
-                data: (seriesTypeValues.includes('surprise')) ? data?.map((element, index) => element.surprise) : [],
+                data: (seriesTypeValues.includes('surprise')) ? data?.map((element) => element.surprise) : [],
                 color: '#ff3300'
             },
             {
                 name: 'Surprise Percentage',
-                data: (seriesTypeValues.includes('surprisePercentage')) ? data?.map((element, index) => element.surprisePercentage) : [],
+                data: (seriesTypeValues.includes('surprisePercentage')) ? data?.map((element) => element.surprisePercentage) : [],
                 color: '#0040ff'
             },
 
@@ -82,7 +82,7 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
         <div className="card bg-white py-8 px-6 w-full">
             <div className='flex items-center justify-between'>
                 <div className='w-full flex items-center justify-between'>
-                    <p className='inline-flex text-3xl font-fira-sans '>
+                    <p className='inline-flex text-3xl font-fira-sans bg-primary-500 '>
                         {(durationType === 'Annual') ? 'Annual ' : 'Quarterly '} {chartTitle}
                     </p>
 
