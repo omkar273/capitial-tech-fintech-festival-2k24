@@ -2,8 +2,8 @@ import CompanyDetailsPageNavbar from "@/features/company_analysis/components/com
 
 const categories = [
     "Alcohol beverages",
-    "Air Transport Service"
-    , "Agro chemicals",
+    "Air Transport Service",
+     "Agro chemicals",
     "Aerospace &amp; Defence",
     "Auto Ancillaries",
     "Banks",

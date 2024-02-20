@@ -1,6 +1,10 @@
-import { Avatar } from 'antd';
+import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
 const DashboardNavbar = () => {
+    const items = [
+        { key: '1', label: (<Link to={'/profile'}>Profile</Link>) },
+        { key: '2', label: (<Link to={'/profile'}>Logout</Link>) }
+    ];
     return (
         <div className="sticky top-0 left-0  w-full bg-white z-50">
             <div className="w-full py-2 px-[3%] flex justify-between items-center">
@@ -14,9 +18,12 @@ const DashboardNavbar = () => {
                     <Link to={'/'} className=" cursor-pointer tap">about</Link>
                 </div>
                 <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden">
-                    <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" gap={10} >
-                        {'O'}
-                    </Avatar>
+
+                    <Dropdown menu={{ items }} placement="bottomRight">
+                        <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" gap={10} >
+                            {'O'}
+                        </Avatar>
+                    </Dropdown>
 
                 </div>
             </div>

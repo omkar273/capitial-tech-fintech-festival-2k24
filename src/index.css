@@ -25,18 +25,4 @@
   }
 
   /* styles.css */
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 20px;
-  }
-
-  .grid-item {
-    border: 2px solid #0077cc;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-  }
 }
