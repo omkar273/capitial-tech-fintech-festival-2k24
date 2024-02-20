@@ -1,8 +1,8 @@
-
+import capitalTechLogo from "../../assets/images/capitallogo.png"
 const Footer = () => {
     return (
         <div className='w-full bg-white py-3 px-[4%] pb-12'>
-            <img src="../../assets/images/capitallogo.png" />
+            <img src={capitalTechLogo} />
             <p className="text-base text-black font-[600] py-1">
                 Stock analysis and screening tool
             </p>

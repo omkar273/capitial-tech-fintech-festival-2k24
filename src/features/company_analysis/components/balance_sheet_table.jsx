@@ -148,3 +148,4 @@ export const income_sheet_labels = [
     { 'title': 'ebitda', 'key': 'ebitda' },
     { 'title': 'netIncome', 'key': 'netIncome' },
 ]
+

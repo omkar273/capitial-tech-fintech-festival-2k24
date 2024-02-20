@@ -2,12 +2,10 @@
 import Spacer from '@/core/components/spacer';
 import { handleGoogleSignIn } from '@/core/firebase/auth';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import google_icon from '../../../assets/icons/ic_google_log.png';
 import CapitaltechLogo from "../../../assets/images/capitallogo.png";
 import InputField from '../components/input_field';
-
 const AuthPage = () => {
-    const navigate = useNavigate();
     const [loading, setloading] = useState(false)
 
     const signInWithGoogle = async () => {
@@ -63,7 +61,7 @@ const AuthPage = () => {
                     <div
                         onClick={signInWithGoogle}
                         className='w-max flex bg-blue-500 p-1 rounded-none  font-normal justify-center items-center gap-3 text-base font-fira-sans text-white tap'>
-                        <img src='/src/assets/icons/ic_google_log.png' className='bg-white p-1' width={32} />
+                        <img src={google_icon} className='bg-white p-1' width={32} />
                         <span className='p-2'>Sign in With Google</span>
                     </div>
                 </div>

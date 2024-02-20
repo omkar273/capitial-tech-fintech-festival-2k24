@@ -1,5 +1,7 @@
 import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
+import capitalTechLogo from '../../../assets/images/capitallogo.png';
+
 const DashboardNavbar = () => {
     const items = [
         { key: '1', label: (<Link to={'/profile'}>Profile</Link>) },
@@ -10,7 +12,7 @@ const DashboardNavbar = () => {
             <div className="w-full py-2 px-[3%] flex justify-between items-center">
                 <div className="flex gap-6 items-center text-gray-800 text-lg font-fira-sans">
                     <Link to={'/'} className=" cursor-pointer tap">
-                        <img src="../../../assets/images/capitallogo.png" className="object-cover h-12" />
+                        <img src={capitalTechLogo} className="object-cover h-12" />
                     </Link>
                     <Link to={'/'} className=" cursor-pointer tap">home</Link>
                     <Link to={'/'} className=" cursor-pointer tap">product</Link>

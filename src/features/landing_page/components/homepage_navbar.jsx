@@ -1,7 +1,11 @@
-import { handleLogout } from "@/core/firebase/auth";
-import { Avatar } from 'antd';
+import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
+
 const HomeNavbar = () => {
+    const items = [
+        { key: '1', label: (<Link to={'/profile'}>Profile</Link>) },
+        { key: '2', label: (<Link to={'/auth'}>Logout</Link>) }
+    ];
     return (
         <div className="w-full py-4 px-[6%] flex justify-between items-center">
             <div className="flex gap-6 items-center  text-lg font-fira-sans">
@@ -11,12 +15,11 @@ const HomeNavbar = () => {
                 <Link to={'/'} className=" cursor-pointer tap">about</Link>
             </div>
             <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden">
-                <button onClick={handleLogout}>
-                    <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" >
+                <Dropdown menu={{ items }} placement="bottomRight">
+                    <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" gap={10} >
                         {'O'}
                     </Avatar>
-
-                </button>
+                </Dropdown>
             </div>
         </div>
     )
