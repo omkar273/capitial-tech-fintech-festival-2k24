@@ -26,7 +26,7 @@ const AuthPage = () => {
     return (
         <div className="gr-pg md:flex justify-center">
             <div className="w-full md:w-1/2 md:sticky md:top-0 p-4">
-                <img src="/src/assets/images/capitallogo.png" className='object-cover h-20' />
+                <img src="../../../assets/images/capitallogo.png" className='object-cover h-20' />
             </div>
 
             {/* login */}

@@ -82,8 +82,9 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
         <div className="card bg-white py-8 px-6 w-full">
             <div className='flex items-center justify-between'>
                 <div className='w-full flex items-center justify-between'>
-                    <p className='inline-flex text-3xl font-fira-sans bg-primary-500 '>
-                        {(durationType === 'Annual') ? 'Annual ' : 'Quarterly '} {chartTitle}
+                    
+                    <p className='inline-flex text-3xl font-fira-sans'>
+                        {chartTitle}
                     </p>
 
                     <div className='inline-flex gap-4'>

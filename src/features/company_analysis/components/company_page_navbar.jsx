@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Avatar } from 'antd';
+import { Link } from "react-router-dom";
 
 const CompanyDetailsPageNavbar = () => {
     return (
@@ -6,17 +7,17 @@ const CompanyDetailsPageNavbar = () => {
             <div className="w-full py-0 px-[3%] flex justify-between items-center">
                 <div className="flex gap-6 items-center text-gray-800  font-fira-sans">
                     <Link to={'/'} className=" cursor-pointer tap">
-                        <img src="/src/assets/images/capitallogo.png" className="object-cover h-12" />
+                        <img src="../../../assets/images/capitallogo.png" className="object-cover h-12" />
                     </Link>
                     <Link to={'/'} className=" cursor-pointer tap">home</Link>
                     <Link to={'/'} className=" cursor-pointer tap">product</Link>
                     <Link to={'/'} className=" cursor-pointer tap">support</Link>
                     <Link to={'/'} className=" cursor-pointer tap">about</Link>
                 </div>
-                <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden">
-                    <div className="tap p-1 font-semibold border-blue-500 text-white w-8 h-8 flex justify-center items-center rounded-full  bg-purple-500">o</div>
+                <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" >
+                    {'O'}
+                </Avatar>
 
-                </div>
             </div>
             <div className="w-full p-2 bg-purple-300 flex items-center gap-7 text-[0.75rem] font-semibold font-open-sans overflow-x-scroll break-before-avoid whitespace-nowrap">
                 <button className="tap">Charts</button>

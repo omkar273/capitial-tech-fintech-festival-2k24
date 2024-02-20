@@ -24,7 +24,7 @@ const HomePage = () => {
                 <HomeNavbar />
             </div>
             <div className="pg p-4 flex flex-col md:justify-center py-8 md:py-0 items-center">
-                <img src="/src/assets/images/capitallogo.png" />
+                <img src="../../../assets/images/capitallogo.png" />
 
                 <Spacer height={15} />
                 <div className=' w-full md:w-1/2 relative'>

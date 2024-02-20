@@ -1,9 +1,10 @@
-import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
+import DashboardNavbar from "../components/dashboard_navbar";
 
-const Dashboard = () => {
+const DashboardPage = () => {
+    const grid_item = ' p-5 rounded-xl border-2 cursor-pointer bg-purple-400 btn'
     return (
         <div className='pg'>
-            <CompanyDetailsPageNavbar />
+            <DashboardNavbar />
             <div className="md:flex p-4 gap-4 pb-12">
                 <div className="flex-grow rounded-lg p-5 card bg-white">
 
@@ -12,27 +13,27 @@ const Dashboard = () => {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="border-[2px_solid_#0077cc] p-5 rounded-xl m-5 border-2">
-                            <h2>My Account</h2>
+                        <div className={grid_item} >
+                            <h2>Profile</h2>
                             <p>KYC. Referral.Bank</p>
                         </div>
-                        <div className="border-[2px_solid_#0077cc] p-5 rounded-xl m-5 border-2">
+                        <div className={grid_item} >
                             <h2>Stocks</h2>
                             <p>Orders - IPO-Holdings - Demat - Charges</p>
                         </div>
-                        <div className="border-[2px_solid_#0077cc] p-5 rounded-xl m-5 border-2">
+                        <div className={grid_item} >
                             <h2>Mutual funds</h2>
                             <p>Orders-SIP-Autopay - External Funds</p>
                         </div>
-                        <div className="border-[2px_solid_#0077cc] p-5 rounded-xl m-5 border-2">
+                        <div className={grid_item} >
                             <h2>Build Portfolio</h2>
                             <p>Capital tech.Withdrawls. Captal tech pay</p>
                         </div>
-                        <div className="border-[2px_solid_#0077cc] p-5 rounded-xl m-5 border-2">
+                        <div className={grid_item} >
                             <h2>Most Visited Today</h2>
                             <p>Answers to Frequently Raised Questions</p>
                         </div>
-                        <div className="border-[2px_solid_#0077cc] p-5 rounded-xl m-5 border-2">
+                        <div className={grid_item} >
                             <h2>FD's</h2>
                             <p>About - orders - Taxation - Wihtdrawls</p>
                         </div>
@@ -77,4 +78,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard;
+export default DashboardPage;
