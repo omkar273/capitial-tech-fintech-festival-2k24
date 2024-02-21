@@ -1,11 +1,17 @@
+import StockPredictionIcon from '@mui/icons-material/AutoGraph';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import PortfolioAnalysisIcon from '@mui/icons-material/PieChart';
+import MarketIcon from '@mui/icons-material/Timeline';
+import { Link } from 'react-router-dom';
 import DashboardNavbar from "../components/dashboard_navbar";
 
 const DashboardPage = () => {
-    const grid_item = ' p-5 rounded-xl border-2 cursor-pointer bg-purple-400 btn'
+    const className = ' p-5 rounded-xl border-2 cursor-pointer bg-purple-400 btn text-xl flex items-center gap-4'
     return (
         <div className='pg'>
             <DashboardNavbar />
             <div className="md:flex p-4 gap-4 pb-12">
+
                 <div className="flex-grow rounded-lg p-5 card bg-white">
 
                     <p className="rounded-3xl font-bold text-3xl ml-8 p-4">
@@ -13,37 +19,41 @@ const DashboardPage = () => {
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className={grid_item} >
-                            <h2>Profile</h2>
-                            <p>KYC. Referral.Bank</p>
-                        </div>
-                        <div className={grid_item} >
-                            <h2>Stocks</h2>
-                            <p>Orders - IPO-Holdings - Demat - Charges</p>
-                        </div>
-                        <div className={grid_item} >
-                            <h2>Mutual funds</h2>
-                            <p>Orders-SIP-Autopay - External Funds</p>
-                        </div>
-                        <div className={grid_item} >
-                            <h2>Build Portfolio</h2>
-                            <p>Capital tech.Withdrawls. Captal tech pay</p>
-                        </div>
-                        <div className={grid_item} >
-                            <h2>Most Visited Today</h2>
-                            <p>Answers to Frequently Raised Questions</p>
-                        </div>
-                        <div className={grid_item} >
-                            <h2>FD's</h2>
-                            <p>About - orders - Taxation - Wihtdrawls</p>
-                        </div>
+                        <Link className={className} to={'/profile'} >
+                            <PortfolioAnalysisIcon fontSize='large' />
+                            portfolio analysis
+                        </Link>
+
+                        <div className={className} >
+                            <MarketIcon fontSize='large' />
+                            Market overview </div>
+
+                        <div className={className} >
+                            <StockPredictionIcon fontSize='large' />
+                            Stock prediction </div>
+
+                        <div className={className} >
+                            <NewspaperIcon fontSize='large' />
+                            Market news </div>
+
+                        <div className={className} >
+                            <NewspaperIcon fontSize='large' />
+                            Charts and visualisation </div>
+
+                        <div className={className} >
+                            <NewspaperIcon fontSize='large' />
+                            Stock analysis </div>
+
+                        <div className={className} >
+                            <NewspaperIcon fontSize='large' />
+                            Investment Plans  </div>
                     </div>
 
                 </div>
 
-                <div className="flex-30 card rounded-lg bg-white">
+                <div className="flex-[30%] card rounded-lg bg-white">
                     <div>
-                        <p className="text-2xl font-semibold">Desno</p>
+                        <div className="text-2xl font-semibold">Desno</div>
                         <br />
                         <div className="inline">
                             <b>812</b>INR

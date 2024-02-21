@@ -1,10 +1,12 @@
+import { handleLogout } from '@/core/firebase/auth';
 import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
 
 const HomeNavbar = () => {
     const items = [
         { key: '1', label: (<Link to={'/profile'}>Profile</Link>) },
-        { key: '2', label: (<Link to={'/auth'}>Logout</Link>) }
+        { key: '2', label: (<Link to={'/dashboard'}>Dashboard</Link>) },
+        { key: '3', label: (<div onClick={handleLogout}>Logout</div>) }
     ];
     return (
         <div className="w-full py-4 px-[6%] flex justify-between items-center">

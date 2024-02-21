@@ -1,3 +1,4 @@
+import { handleLogout } from '@/core/firebase/auth';
 import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
 import capitalTechLogo from '../../../assets/images/capitallogo.png';
@@ -5,7 +6,8 @@ import capitalTechLogo from '../../../assets/images/capitallogo.png';
 const DashboardNavbar = () => {
     const items = [
         { key: '1', label: (<Link to={'/profile'}>Profile</Link>) },
-        { key: '2', label: (<Link to={'/profile'}>Logout</Link>) }
+        { key: '2', label: (<Link to={'/dashboard'}>Dashboard</Link>) },
+        { key: '3', label: (<div onClick={handleLogout}>Logout</div>) }
     ];
     return (
         <div className="sticky top-0 left-0  w-full bg-white z-50">

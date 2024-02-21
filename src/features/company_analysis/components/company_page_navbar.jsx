@@ -1,11 +1,13 @@
 import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
 import capitalTechLogo from "../../../assets/images/capitallogo.png";
+import { handleLogout } from '@/core/firebase/auth';
 
 const CompanyDetailsPageNavbar = () => {
     const items = [
         { key: '1', label: (<Link to={'/profile'}>Profile</Link>) },
-        { key: '2', label: (<Link to={'/auth'}>Logout</Link>) }
+        { key: '2', label: (<Link to={'/dashboard'}>Dashboard</Link>) },
+        { key: '3', label: (<div onClick={handleLogout}>Logout</div>) }
     ];
     return (
         <div className="sticky top-0 left-0  w-full bg-white z-50">
