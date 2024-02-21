@@ -2,6 +2,7 @@ import Spacer from "@/core/components/spacer";
 import DashboardNavbar from "@/features/dashboard/components/dashboard_navbar";
 import { Tabs } from 'antd';
 import PortfolioBuilder from "../components/stock_analysis";
+import TaxationPage from './tax_page';
 
 const PortfolioPage = () => {
     const items = [
@@ -18,7 +19,7 @@ const PortfolioPage = () => {
         {
             key: '3',
             label: 'Smart Tax optimization',
-            children: 'Content of Tab Pane 3',
+            children: <TaxationPage />,
         },
     ];
     return (

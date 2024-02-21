@@ -12,7 +12,7 @@ const HomeNavbar = () => {
         <div className="w-full py-4 px-[6%] flex justify-between items-center">
             <div className="flex gap-6 items-center  text-lg font-fira-sans">
                 <Link to={'/'} className=" cursor-pointer tap">home</Link>
-                <Link to={'/'} className=" cursor-pointer tap">product</Link>
+                <Link to={'/news'} className=" cursor-pointer tap">News</Link>
                 <Link to={'/'} className=" cursor-pointer tap">support</Link>
                 <Link to={'/'} className=" cursor-pointer tap">about</Link>
             </div>

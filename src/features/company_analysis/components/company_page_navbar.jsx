@@ -1,7 +1,7 @@
+import { handleLogout } from '@/core/firebase/auth';
 import { Avatar, Dropdown } from 'antd';
 import { Link } from "react-router-dom";
 import capitalTechLogo from "../../../assets/images/capitallogo.png";
-import { handleLogout } from '@/core/firebase/auth';
 
 const CompanyDetailsPageNavbar = () => {
     const items = [
@@ -17,7 +17,7 @@ const CompanyDetailsPageNavbar = () => {
                         <img src={capitalTechLogo} className="object-cover h-12" />
                     </Link>
                     <Link to={'/'} className=" cursor-pointer tap">home</Link>
-                    <Link to={'/'} className=" cursor-pointer tap">product</Link>
+                    <Link to={'/news'} className=" cursor-pointer tap">News</Link>
                     <Link to={'/'} className=" cursor-pointer tap">support</Link>
                     <Link to={'/'} className=" cursor-pointer tap">about</Link>
                 </div>

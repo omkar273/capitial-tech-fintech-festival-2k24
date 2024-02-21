@@ -17,7 +17,7 @@ const DashboardNavbar = () => {
                         <img src={capitalTechLogo} className="object-cover h-12" />
                     </Link>
                     <Link to={'/'} className=" cursor-pointer tap">home</Link>
-                    <Link to={'/'} className=" cursor-pointer tap">product</Link>
+                    <Link to={'/news'} className=" cursor-pointer tap">News</Link>
                     <Link to={'/'} className=" cursor-pointer tap">support</Link>
                     <Link to={'/'} className=" cursor-pointer tap">about</Link>
                 </div>

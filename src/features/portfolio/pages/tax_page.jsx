@@ -1,12 +1,9 @@
-import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
 
 const TaxationPage = () => {
     const text = 'p-4 border border-gray-300'
 
     return (
         <div className='pg bg-white'>
-            <CompanyDetailsPageNavbar />
-            <br></br>
             <div className="w-full p-8 border border-gray-300 rounded  overflow-x-auto">
                 <table className="w-full border-collapse rounded-md">
                     <thead className="bg-gray-200 rounded-md">
