@@ -10,13 +10,16 @@ import HomeNavbar from "../components/homepage_navbar";
 const HomePage = () => {
     const [companiesList, setCompaniesList] = useState([]);
     const [query, setQuery] = useState('');
+    const [loading, setloading] = useState(false)
 
     const searchCompanyiesList = async () => {
+        setloading(true);
         const res = await getCompaniesList(query);
         if (res !== null) {
             setCompaniesList(res);
         }
-    };
+        setloading(false);
+    }
 
     return (
         <div className="gr-pg">
@@ -38,9 +41,17 @@ const HomePage = () => {
                             onChange={(e) => setQuery(e.target.value)} type="text" className="border-none focus:outline-none text-base flex-grow" placeholder='Search company name...' />
                     </div>
 
+
+                    <ul className='absolute bg-white rounded-md shadow-md overflow-y-scroll max-h-[200px] scroll-smooth shadow-black z-[9999] mt-1'>
+                        {loading && <li className='bg-white py-2 px-4 text-base cursor-pointer hover:bg-gray-200 hover:text-blue-500'>
+                            loading....
+                        </li>}
+                    </ul>
+
                     {/* search results */}
                     {companiesList.length > 0 && (
                         <ul className='absolute bg-white rounded-md shadow-md overflow-y-scroll max-h-[200px] scroll-smooth shadow-black z-[9999] mt-1'>
+
                             {companiesList.map(
                                 (company) => <li
 

@@ -45,6 +45,7 @@ const App = () => {
               <Route path='/company/:symbol' element={<CompanyDetailsPage />} />
 
               <Route path='*' element={<ErrorPage />} />
+
             </Routes>
           </CssBaseline>
         </ThemeProvider>
