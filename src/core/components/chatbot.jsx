@@ -12,8 +12,8 @@ import { useState } from "react";
 import chatbotLogo from "../../assets/images/chatbot.png";
 
 
-const chatGptApiKEY = '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'
-const chatGptApiKEY2 = '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'
+const chatGptApiKEY = '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'
+const chatGptApiKEY2 = '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'
 const chatGptApiURL = 'https://api.openai.com/v1/chat/completions'
 
 const Chatbot = () => {
@@ -42,36 +42,63 @@ const Chatbot = () => {
   }
 
   const processMessageToGPT = async (newMsgs) => {
-    let apiMsgs = newMsgs.map((msg, i) => {
-      let role = 'user'
-      if (msg.sender === 'CapitlTech chatbot') {
-        role = 'assistant'
+    try {
+      let apiMsgs = newMsgs.map((msg) => {
+        let role = msg.sender === 'CapitlTech chatbot' ? 'assistant' : 'user';
+        return { role, content: msg.message };
+      });
+
+      const response = await fetch(chatGptApiURL, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + chatGptApiKEY2,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          temperature: 0.7,
+          messages: [
+            {
+              role: 'system',
+              content: 'Explain all the concepts like I am a 10-year-old boy in a short and simple manner.',
+            },
+            ...apiMsgs,
+          ],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch response from the GPT API.');
       }
-      return { role: role, content: msg.message }
-    })
-    console.log(apiMsgs);
 
-    const res = await fetch(chatGptApiURL, {
-      method: 'POST',
-      headers: {
-        "Authorization": 'Bearer ' + chatGptApiKEY2,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        "model": "gpt-3.5-turbo",
-        "messages": [
-          {
-            role: 'system',
-            content: 'Explain all the concepts like i am 10 yrs old boy in short and simple manner'
-          },
-          ...apiMsgs
-        ],
-      })
-    })
+      const responseData = await response.json(); // Read the response once and store it
 
-    console.log(res);
-    setisTyping(false);
-  }
+      console.log(responseData);
+
+      // Use responseData for subsequent operations
+      // setmessagesList([...messagesList,
+      // { message: newMsgs, sender: "user", direction: 'outgoing' },
+
+      // {
+      //   message: responseData.choices[0].message.content,
+      //   sender: "user",
+      // }]);
+      setmessagesList([
+        ...newMsgs,
+        {
+          message: responseData.choices[0].message.content,
+          sender: "CapitlTech chatbot",
+          // direction: 'outgoing'
+        }]);
+
+      setisTyping(false);
+    } catch (error) {
+      console.error('Error in processing messages to GPT:', error);
+      setisTyping(false);
+      // Handle error as needed
+    }
+  };
+
 
 
   return (
