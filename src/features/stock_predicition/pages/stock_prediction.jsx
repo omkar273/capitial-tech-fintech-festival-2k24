@@ -75,8 +75,9 @@ const StockPredictionPage = () => {
                             type="text" className="border-none focus:outline-none text-base md:text-2xl flex-grow" placeholder='Search company name...' />
                     </div>
                 </div>
+
                 <div id='Profit & Loss ' className='px-4 md:p-8 pt-12'>
-                    <EarningsChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='Stock prediction' />
+                    <EarningsChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='Stock prediction of TCS' />
                     <Spacer height={20} />
                 </div>
                 <div className='w-full justify-center flex pt-12 '>
@@ -95,7 +96,6 @@ const StockPredictionPage = () => {
                 </div>
                 <Spacer height={50} />
             </div>
-
 
 
             {/* popup modal */}

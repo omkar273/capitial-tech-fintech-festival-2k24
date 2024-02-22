@@ -29,7 +29,7 @@ const DashboardNavbar = () => {
                     <Link to={'/prediction'} className=" cursor-pointer tap">
                         Stock Prediction
                     </Link>
-                    <Link to={'/info'} className=" cursor-pointer tap">about</Link>
+                    <Link to={'/info'} className=" cursor-pointer tap">Tutorial</Link>
                 </div>
                 <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden ">
 

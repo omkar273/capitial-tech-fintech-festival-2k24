@@ -40,7 +40,7 @@ const CompanyDetailsPageNavbar = ({ showBottombar = true }) => {
                     <Link to={'/prediction'} className=" cursor-pointer tap">
                         Stock Prediction
                     </Link>
-                    <Link to={'/info'} className=" cursor-pointer tap">about</Link>
+                    <Link to={'/info'} className=" cursor-pointer tap">Tutorial</Link>
                 </div>
                 <Dropdown menu={{ items }} placement="bottomRight">
                     <Avatar style={{ verticalAlign: 'middle' }} className='bg-primary-400 cursor-pointer' size="large" gap={10} >
@@ -64,7 +64,7 @@ const CompanyDetailsPageNavbar = ({ showBottombar = true }) => {
             {showBottombar && <div className="w-full p-2 bg-purple-300 flex items-center gap-7 text-[0.75rem] font-semibold font-open-sans overflow-x-scroll break-before-avoid whitespace-nowrap">
                 <button className="tap" onClick={() => scrollToSection('Overview')} >Overview</button>
 
-                <button className="tap" onClick={() => scrollToSection('About')}>About</button>
+                <button className="tap" onClick={() => scrollToSection('About')}>Tutorial</button>
 
                 <button className="tap" onClick={() => scrollToSection('Candle chart')}>Candle chart</button>
 

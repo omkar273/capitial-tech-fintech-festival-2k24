@@ -10,7 +10,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Chartbox from './features/chartbox/chartbox'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
 import DashboardPage from './features/dashboard/pages/dashboard_page.jsx'
-import AboutPage from './features/onboarding/pages/highestvolume'
+import TutorialPage from './features/onboarding/pages/highestvolume'
 import PrefferencesPage from './features/onboarding/pages/prefferences_page'
 import InvestmentPlansPage from './features/portfolio/pages/investment_page'
 import PortfolioPage from './features/portfolio/pages/portfolio_analysis.jsx'
@@ -58,7 +58,7 @@ const App = () => {
 
               <Route path='/investment' element={<InvestmentPlansPage />} />
 
-              <Route path='/info' element={<AboutPage />} />
+              <Route path='/info' element={<TutorialPage />} />
 
               <Route path='/profile' element={<PortfolioPage />} />
 

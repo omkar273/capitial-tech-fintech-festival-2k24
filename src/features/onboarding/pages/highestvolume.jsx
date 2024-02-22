@@ -1,6 +1,6 @@
 import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
 
-const AboutPage = () => {
+const TutorialPage = () => {
     const info = [
         "BSE (Bombay Stock Exchange) is the oldest stock exchange in Asia, located in Mumbai, Maharashtra. It was established in 1875 and is known for its benchmark index, the S&P BSE SENSEX, which is widely followed in India and abroad.NSE(National Stock Exchange of India) is located in Mumbai as well and was established in 1992. It is the leading stock exchange in India in terms of total and average daily turnover for equity shares.NSE's benchmark index is the NIFTY 50, which represents the weighted average of 50 of the largest and most liquid Indian companies.",
 
@@ -11,7 +11,7 @@ const AboutPage = () => {
     return (
         <div className="gr-pg">
             <CompanyDetailsPageNavbar showBottombar={false} />
-            <p className="w-full text-center p-5 text-4xl text-white font-semibold">About</p>
+            <p className="w-full text-center p-5 text-4xl text-white font-semibold">Tutorial</p>
             <div className="w-full md:mt-8 p-4">
                 {info.map((info, i) => <div className="bg-white card mb-4">
                     {info}
@@ -22,4 +22,4 @@ const AboutPage = () => {
     )
 }
 
-export default AboutPage;
+export default TutorialPage;

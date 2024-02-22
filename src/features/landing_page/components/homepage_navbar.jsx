@@ -20,6 +20,7 @@ const HomeNavbar = () => {
                 {/* <Link to={'/'} className=" cursor-pointer tap bg-white rounded-md px-3">
                     <img src={capitalTechLogo} className="object-cover h-12" />
                 </Link> */}
+                
                 <Link to={'/'} className=" cursor-pointer tap">home</Link>
 
                 <Link to={'/news'} className=" cursor-pointer tap">News</Link>
@@ -27,10 +28,12 @@ const HomeNavbar = () => {
                 <Link to={'/stocks'} className=" cursor-pointer tap">
                     Stock screen
                 </Link>
+
                 <Link to={'/prediction'} className=" cursor-pointer tap">
                     Stock Prediction
                 </Link>
-                <Link to={'/info'} className=" cursor-pointer tap">about</Link>
+                <Link to={'/info'} className=" cursor-pointer tap">Tutorial</Link>
+
             </div>
             <div className='py-2 px-[3%] flex justify-end items-center'>
                 <div>
