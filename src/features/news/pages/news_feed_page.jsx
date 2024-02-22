@@ -1,3 +1,4 @@
+import Chatbot from "@/core/components/chatbot";
 import Spacer from "@/core/components/spacer";
 import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
 import axios from 'axios';
@@ -78,6 +79,8 @@ const NewsFeedPage = () => {
                     </div>
                 })}
             </div>
+            {/* chatbot */}
+            <Chatbot />
         </div>
     )
 }

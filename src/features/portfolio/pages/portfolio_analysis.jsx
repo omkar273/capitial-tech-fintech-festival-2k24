@@ -1,3 +1,4 @@
+import Chatbot from "@/core/components/chatbot";
 import Spacer from "@/core/components/spacer";
 import DashboardNavbar from "@/features/dashboard/components/dashboard_navbar";
 import { Tabs } from 'antd';
@@ -114,6 +115,8 @@ const PortfolioPage = () => {
                     </div>
                 </div>
             </div>
+            {/* chatbot */}
+            <Chatbot />
         </div>
     )
 }

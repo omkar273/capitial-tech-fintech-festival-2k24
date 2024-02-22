@@ -9,6 +9,7 @@ import CompanyDetailsPageNavbar from '../components/company_page_navbar';
 import { getCompanyDetails } from '../utils/get_company_details';
 import CandleStickChart from './../components/candle_stick_chart';
 
+import Chatbot from '@/core/components/chatbot';
 import Footer from '@/core/components/footer';
 import BalanceSheetChart, { balance_sheet_labels, cashflow_sheet_labels, income_sheet_labels } from '../components/balance_sheet_table';
 import EarningsChart from '../components/earning_chart';
@@ -339,6 +340,8 @@ const CompanyDetailsPage = () => {
 
             </div>
             <Footer />
+            {/* chatbot */}
+            <Chatbot />
         </div >
     );
 };

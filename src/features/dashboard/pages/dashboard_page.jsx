@@ -4,6 +4,7 @@ import PortfolioAnalysisIcon from '@mui/icons-material/PieChart';
 import MarketIcon from '@mui/icons-material/Timeline';
 import { Link } from 'react-router-dom';
 import DashboardNavbar from "../components/dashboard_navbar";
+import Chatbot from '@/core/components/chatbot';
 
 const DashboardPage = () => {
     const className = ' p-5 rounded-xl border-2 cursor-pointer bg-purple-400 btn text-xl flex items-center gap-4'
@@ -84,6 +85,8 @@ const DashboardPage = () => {
 
                 </div>
             </div>
+            {/* chatbot */}
+            <Chatbot />
         </div >
     )
 }
