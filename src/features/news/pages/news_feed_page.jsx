@@ -8,10 +8,6 @@ const NewsFeedPage = () => {
 
     const [newsFeed, setnewsFeed] = useState([])
 
-    const getBgcolor = (score) => {
-
-    }
-
     const getData = async () => {
         try {
             const res = await axios.get('https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=AAPL&apikey=demo')
@@ -35,7 +31,7 @@ const NewsFeedPage = () => {
         <div className="pg">
 
 
-            <CompanyDetailsPageNavbar />
+            <CompanyDetailsPageNavbar showBottombar={false} />
             <div className="p-8 ">
                 {newsFeed.map((news, index) => {
                     return <div key={index} className="rounded-lg overflow-hidden shadow-lg p-6 bg-white md:flex gap-4 mb-4" >
@@ -64,7 +60,7 @@ const NewsFeedPage = () => {
                             <Spacer height={10} />
 
                             <div className="flex gap-2 flex-wrap">
-                                {news.topics.map((topic, index) => <div className="card justify-center items-center flex bg-purple-200">
+                                {news.topics.map((topic, index) => <div key={index} className="card justify-center items-center flex bg-purple-200">
                                     {topic.topic + ' '}{(topic.relevance_score * 100).toFixed(0)}%
                                 </div>)}
 

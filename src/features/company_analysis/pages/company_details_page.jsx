@@ -253,7 +253,7 @@ const CompanyDetailsPage = () => {
                     </div> */}
 
                     {/* company details like pe ratio and about part */}
-                    <div className='w-full md:flex md:gap-8'>
+                    <div className='w-full md:flex md:gap-8' id='Overview'>
 
                         {/* ratios */}
                         <div className='p-4 rounded-md w-full grid md:grid-cols-3 gap-x-8 gap-y-4 justify-center text-[0.75rem] text-gray-500 h-max border-2'>
@@ -266,7 +266,7 @@ const CompanyDetailsPage = () => {
                         </div>
 
                         {/* about */}
-                        <div className='p-2 w-full md:w-[40%]'>
+                        <div className='p-2 w-full md:w-[40%]' id='About'>
                             <p className='text-lg font-semibold py-2'>About</p>
                             <p className='text-[0.9rem]'>{alphaVantageCompany.Description}</p>
                         </div>
@@ -278,7 +278,7 @@ const CompanyDetailsPage = () => {
 
 
                 {/*candle stick chart*/}
-                <div className='w-full bg-white  p-7 card'>
+                <div className='w-full bg-white  p-7 card' id='Candle chart'>
                     <div className='flex  items-center justify-between'>
 
                         <p className='inline-flex text-3xl font-fira-sans '>
@@ -308,19 +308,33 @@ const CompanyDetailsPage = () => {
                 <Spacer height={20} />
 
                 {/* eps graph */}
-                <EarningsChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='Earning per share' />
-                <Spacer height={20} />
+                <div id='Profit & Loss'>
+                    <EarningsChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='Earning per share' />
+                    <Spacer height={20} />
+                </div>
+
+
 
                 {/* annual balance sheets */}
-                <BalanceSheetChart chartTitle='Balance Sheet' url='https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=IBM&apikey=demo' labelsList={balance_sheet_labels} />
+                <div id='Balance sheet'>
+                    <BalanceSheetChart chartTitle='Balance Sheet' url='https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=IBM&apikey=demo' labelsList={balance_sheet_labels} />
+                </div>
+
 
                 {/* cash flows */}
                 <Spacer height={25} />
-                <BalanceSheetChart chartTitle='Cashflow' url='https://www.alphavantage.co/query?function=CASH_FLOW&symbol=IBM&apikey=demo' labelsList={cashflow_sheet_labels} />
+                <div id='Cash flow'>
+
+                    <BalanceSheetChart chartTitle='Cashflow' url='https://www.alphavantage.co/query?function=CASH_FLOW&symbol=IBM&apikey=demo' labelsList={cashflow_sheet_labels} />
+
+                </div>
+
 
                 {/* income sheet chart */}
                 <Spacer height={25} />
-                <BalanceSheetChart chartTitle='Income Statement' url='https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=IBM&apikey=demo' labelsList={income_sheet_labels} />
+                <div id='Income statement'>
+                    <BalanceSheetChart chartTitle='Income Statement' url='https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=IBM&apikey=demo' labelsList={income_sheet_labels} />
+                </div>
                 <Spacer height={50} />
 
             </div>

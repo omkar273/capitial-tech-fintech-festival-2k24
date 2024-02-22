@@ -35,7 +35,7 @@ const BalanceSheetChart = ({ chartTitle = '',
         <div className='card bg-white py-8 px-6'>
             <div className='flex items-center justify-between'>
                 <p className='inline-flex text-3xl font-fira-sans '>
-                    {(durationType === 'Annual') ? 'Annual ' : 'Quarterly '} {chartTitle}
+                    {chartTitle}
                 </p>
                 <div className='inline-flex'>
                     {durationTypeList.map((type, index) =>
