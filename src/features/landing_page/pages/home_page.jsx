@@ -92,9 +92,8 @@ const HomePage = () => {
                 open={open}
                 onOk={() => setOpen(false)}
                 onCancel={() => setOpen(false)}
-                width={1000}
-
-            >
+                className='mt-12'
+                width={1000}>
                 <div className="border-2 w-full flex gap-4 px-4 py-3 bg-white rounded-md justify-center items-center">
                     <div onClick={searchCompanyiesList}>
                         <SearchIcon className='tap ' />
@@ -116,7 +115,7 @@ const HomePage = () => {
                                 </Avatar>
                                 {company.name}
                             </p>
-                            <div className='flex gap-8 items-center '>
+                            <div className='gap-8 justify-end items-center flex-wrap hidden md:flex'>
                                 <p className='text-base '>price : ₹{company.price}</p>
                                 <p className='text-base bg-green-500 p-2 text-white font-ubuntu rounded-md'>Stock : {company.exchange}</p>
                             </div>
