@@ -11,6 +11,7 @@ import Chartbox from './features/chartbox/chartbox'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
 import DashboardPage from './features/dashboard/pages/dashboard_page.jsx'
 import AboutPage from './features/onboarding/pages/highestvolume'
+import PrefferencesPage from './features/onboarding/pages/prefferences_page'
 import PortfolioPage from './features/portfolio/pages/portfolio_analysis.jsx'
 import TaxationPage from './features/portfolio/pages/tax_page.jsx'
 import StockPredictionPage from './features/stock_predicition/pages/stock_prediction'
@@ -51,6 +52,8 @@ const App = () => {
               <Route path='/chart' element={<Chartbox />} />
 
               <Route path='/stocks' element={<StockScreenPage />} />
+
+              <Route path='/onboarding' element={<PrefferencesPage />} />
 
               <Route path='/info' element={<AboutPage />} />
 

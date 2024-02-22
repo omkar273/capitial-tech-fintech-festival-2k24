@@ -32,6 +32,13 @@ const HomeNavbar = () => {
                 </Link>
                 <Link to={'/info'} className=" cursor-pointer tap">about</Link>
             </div>
+            <div className='py-2 px-[3%] flex justify-end items-center'>
+                <div>
+                    <Dropdown menu={{ items }} placement="bottomRight">
+                        <MenuIcon fontSize='large' />
+                    </Dropdown>
+                </div>
+            </div>
 
             {/* mobile menu */}
             <div className='w-full py-2 px-[3%] flex justify-end items-center md:hidden'>

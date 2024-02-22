@@ -16,7 +16,7 @@ const AuthPage = () => {
             console.log(user);
             if (user != null) {
                 console.log('user logged in');
-                window.location = '/'
+                window.location = '/onboarding'
             }
         } catch (error) {
             console.log(error);

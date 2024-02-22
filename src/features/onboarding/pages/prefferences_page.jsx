@@ -1,105 +1,84 @@
 import Spacer from "@/core/components/spacer";
+import HomeNavbar from "@/features/landing_page/components/homepage_navbar";
 
 const PrefferencesPage = () => {
     return (
-        <div className="gr-pg p-4 md:p-12 flex gap-5 h-max">
-            <div className="card bg-white">Which type of trading you want to invest in?
+        <div className="gr-pg ">
+            <HomeNavbar />
+            <div className="p-4 grid grid-cols-2 gap-10">
 
-                <Spacer height={20} />
-                <div className="half-line-effect" style={{ position: 'relative', width: '100%', height: '4px', background: 'linear-gradient(to right, #36FFDB 50%, #3498db 50%)' }}><div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to right, transparent 50%, #D9D9D9 50%)', animation: 'half-line-animation 2s linear infinite' }}></div></div>
-                <div className="flex gap-4">
-                    <div className="card">
-                        STOCKS
+                {/* card1 */}
+                <div className="p-4 bg-white rounded-lg ">
+                    <p className="text-wrap text-lg font-semibold">1. Which type of trading you want to invest in </p>
+                    <Spacer height={15} />
+                    <div className="flex w-full">
+                        <div className="h-1 bg-green-600 w-full"></div>
+                        <div className="h-1 bg-gray-200 w-full"></div>
                     </div>
-                    <div className="card">
-                        FOREX
-                    </div>
-                    <div className="card">
-                        FUNDS
-                    </div>
-                    <div className="card">
-                        BONDS
-                    </div>
-
-                </div>
-
-
-
-
-            </div>
-
-            <div className="card bg-white">What is your trading level ?
-
-                <Spacer height={20} />
-                <div className="half-line-effect" style={{ position: 'relative', width: '100%', height: '4px', background: 'linear-gradient(to right, #36FFDB 50%, #3498db 50%)' }}><div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to right, transparent 50%, #D9D9D9 50%)', animation: 'half-line-animation 2s linear infinite' }}></div></div>
-                <div className="flex gap-4">
-                    <div className="card">
-                        BEGINNER
-                    </div>
-                    <div className="card">
-                        INTERMEDIATE
-                    </div>
-                    <div className="card">
-                        PROFESSIONAL
+                    <Spacer height={30} />
+                    <div className="flex gap-3 flex-wrap">
+                        <button className="card bg-blue-400 text-white font-semibold">Stocks</button>
+                        <button className="card bg-blue-400 text-white font-semibold">Forex </button>
+                        <button className="card bg-blue-400 text-white font-semibold">Funds</button>
+                        <button className="card bg-blue-400 text-white font-semibold">Bonds</button>
                     </div>
                 </div>
-
-            </div>
-
-            <Spacer height={20} />
-
-            <div className="flex">
-
-                <div className="card bg-white">Select Companies youre interested in ?
-
-                    <Spacer height={20} />
-                    <div className="half-line-effect" style={{ position: 'relative', width: '100%', height: '4px', background: 'linear-gradient(to right, #36FFDB 50%, #3498db 50%)' }}><div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to right, transparent 50%, #D9D9D9 50%)', animation: 'half-line-animation 2s linear infinite' }}></div></div>
-                    <div className="flex gap-4">
-                        <div className="card">
-                            TATA MOTORS LTD
-                        </div>
-                        <div className="card">
-                            ULTRATECH
-                        </div>
-                        <div className="card">
-                            ZOMATO
-                        </div>
-                        <div className="card">
-                            INDIAN RAILWAYS FIN...
-                        </div>
-                        <div className="card">
-                            YES BANK                        </div>
+                {/* card2 */}
+                <div className="p-4 bg-white rounded-lg ">
+                    <p className="text-wrap text-lg font-semibold">What is your trading level ? </p>
+                    <Spacer height={15} />
+                    <div className="flex w-full">
+                        <div className="h-1 bg-green-600 w-full"></div>
+                        <div className="h-1 bg-gray-200 w-full"></div>
+                    </div>
+                    <Spacer height={30} />
+                    <div className="flex gap-3 flex-wrap">
+                        <button className="card bg-blue-400 text-white font-semibold">Beginner </button>
+                        <button className="card bg-blue-400 text-white font-semibold">Intermediate </button>
+                        <button className="card bg-blue-400 text-white font-semibold">Professional</button>
 
                     </div>
-
-
-
-
                 </div>
-
-                <div className="card bg-white">Select your investment period
-
-                    <Spacer height={20} />
-                    <div className="half-line-effect" style={{ position: 'relative', width: '100%', height: '4px', background: 'linear-gradient(to right, #36FFDB 50%, #3498db 50%)' }}><div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to right, transparent 50%, #D9D9D9 50%)', animation: 'half-line-animation 2s linear infinite' }}></div></div>
-                    <div className="flex gap-4">
-                        <div className="card">
-                            SHORT TERM
-                        </div>
-                        <div className="card">
-                            LONG TERM
-                        </div>
-                        <div className="card">
-                            HYBRID
-                        </div>
+                {/* card1 */}
+                <div className="p-4 bg-white rounded-lg ">
+                    <p className="text-wrap text-lg font-semibold">Select Companies youre interested in ?</p>
+                    <Spacer height={15} />
+                    <div className="flex w-full">
+                        <div className="h-1 bg-green-600 w-full"></div>
+                        <div className="h-1 bg-gray-200 w-full"></div>
+                    </div>
+                    <Spacer height={30} />
+                    <div className="flex gap-3 flex-wrap">
+                        <button className="card bg-blue-400 text-white font-semibold">TCS</button>
+                        <button className="card bg-blue-400 text-white font-semibold">Reliance </button>
+                        <button className="card bg-blue-400 text-white font-semibold">Adani</button>
+                        <button className="card bg-blue-400 text-white font-semibold">Other</button>
+                    </div>
+                </div>
+                {/* card1 */}
+                <div className="p-4 bg-white rounded-lg ">
+                    <p className="text-wrap text-lg font-semibold">Select your investment period </p>
+                    <Spacer height={15} />
+                    <div className="flex w-full">
+                        <div className="h-1 bg-green-600 w-full"></div>
+                        <div className="h-1 bg-gray-200 w-full"></div>
+                    </div>
+                    <Spacer height={30} />
+                    <div className="flex gap-3 flex-wrap">
+                        <button className="card bg-blue-400 text-white font-semibold">Short term</button>
+                        <button className="card bg-blue-400 text-white font-semibold">Long term </button>
+                        <button className="card bg-blue-400 text-white font-semibold">Hybrid</button>
                     </div>
                 </div>
 
             </div>
-
-
+            <div className="w-full flex justify-center ">
+                <a href="/" className=" w-[70%] text-center my-8 p-4 text-2xl bg-blue-500 rounded-md text-white btn">
+                    Submit
+                </a>
+            </div>
         </div>
-
     )
 }
 
-export default PrefferencesPage;
+export default PrefferencesPage

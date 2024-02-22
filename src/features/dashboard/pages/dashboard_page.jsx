@@ -1,10 +1,9 @@
-import StockPredictionIcon from '@mui/icons-material/AutoGraph';
+import Chatbot from '@/core/components/chatbot';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import PortfolioAnalysisIcon from '@mui/icons-material/PieChart';
 import MarketIcon from '@mui/icons-material/Timeline';
 import { Link } from 'react-router-dom';
 import DashboardNavbar from "../components/dashboard_navbar";
-import Chatbot from '@/core/components/chatbot';
 
 const DashboardPage = () => {
     const className = ' p-5 rounded-xl border-2 cursor-pointer bg-purple-400 btn text-xl flex items-center gap-4'
@@ -25,29 +24,28 @@ const DashboardPage = () => {
                             portfolio analysis
                         </Link>
 
-                        <div className={className} >
+                        <Link className={className} to={'/stocks'} >
                             <MarketIcon fontSize='large' />
-                            Market overview </div>
+                            Market overview </Link>
+                        <Link className={className} to={'/prediction'} >
+                            <MarketIcon fontSize='large' />
+                            Stock Prediction </Link>
 
-                        <div className={className} >
+                        {/* <div className={className} >
                             <StockPredictionIcon fontSize='large' />
-                            Stock prediction </div>
+                            Stock prediction </div> */}
 
-                        <div className={className} >
+                        <Link className={className} to={'/news'}>
                             <NewspaperIcon fontSize='large' />
-                            Market news </div>
+                            Market news </Link>
 
-                        <div className={className} >
+                        <Link className={className} to={'/company/TCS'} >
                             <NewspaperIcon fontSize='large' />
-                            Charts and visualisation </div>
+                            Charts and visualisation </Link>
 
-                        <div className={className} >
+                        {/* <div className={className} >
                             <NewspaperIcon fontSize='large' />
-                            Stock analysis </div>
-
-                        <div className={className} >
-                            <NewspaperIcon fontSize='large' />
-                            Investment Plans  </div>
+                            Investment Plans  </div> */}
                     </div>
 
                 </div>
