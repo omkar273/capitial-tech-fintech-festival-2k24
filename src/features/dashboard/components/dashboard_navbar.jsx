@@ -7,6 +7,7 @@ const DashboardNavbar = () => {
     const items = [
         { key: '1', label: (<Link to={'/'}>Home</Link>) },
         { key: '2', label: (<Link to={'/news'}>News</Link>) },
+        { key: '6', label: (<Link to={'/stocks'}>Stock screen</Link>) },
         { key: '3', label: (<Link to={'/profile'}>Profile</Link>) },
         { key: '4', label: (<Link to={'/dashboard'}>Dashboard</Link>) },
         { key: '5', label: (<div onClick={handleLogout}>Logout</div>) }
@@ -21,7 +22,9 @@ const DashboardNavbar = () => {
                     </Link>
                     <Link to={'/'} className=" cursor-pointer tap">home</Link>
                     <Link to={'/news'} className=" cursor-pointer tap">News</Link>
-                    <Link to={'/'} className=" cursor-pointer tap">support</Link>
+                    <Link to={'/stocks'} className=" cursor-pointer tap">
+                        Stock screen
+                    </Link>
                     <Link to={'/'} className=" cursor-pointer tap">about</Link>
                 </div>
                 <div className="gap-6 items-center text-black text-base font-fira-sans md:flex hidden ">

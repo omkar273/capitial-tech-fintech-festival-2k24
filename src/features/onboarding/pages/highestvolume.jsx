@@ -9,8 +9,6 @@ const HighPage = () => {
                     BSE (Bombay Stock Exchange) is the oldest stock exchange in Asia, located in Mumbai, Maharashtra. It was established in 1875 and is known for its benchmark index, the S&P BSE SENSEX, which is widely followed in India and abroad.
                     NSE (National Stock Exchange of India) is located in Mumbai as well and was established in 1992. It is the leading stock exchange in India in terms of total and average daily turnover for equity shares. NSE's benchmark index is the NIFTY 50, which represents the weighted average of 50 of the largest and most liquid Indian companies.
 
-
-
                 </div>
                 <div className="card  bg-white">
                     equity: Equity, also known as shares or stocks, represents ownership in a company. When you buy shares of a company, you become a shareholder and have a degree of ownership in that company.Broker: A broker is an intermediary who connects investors to the exchange and executes trades on their behalf in exchange for a small commission.Bull market: A bull market is a period in which the prices of stocks are generally rising

@@ -3,7 +3,7 @@ import CompanyDetailsPageNavbar from "@/features/company_analysis/components/com
 const categories = [
     "Alcohol beverages",
     "Air Transport Service",
-     "Agro chemicals",
+    "Agro chemicals",
     "Aerospace &amp; Defence",
     "Auto Ancillaries",
     "Banks",
@@ -26,7 +26,7 @@ const categories = [
     "Diversified"
 ];
 const categoryBoxes = categories.map((category, index) => (
-    <div key={index} style={{ display: 'inline-block', borderRadius: '10px', border: '2px solid #0077cc', padding: '10px', color: '#0077cc', margin: '5px' }}>
+    <div key={index} style={{ display: 'inline-block', borderRadius: '10px', border: '2px solid #0077cc', padding: '10px', color: '#0077cc', margin: '5px', cursor: 'pointer' }}>
         {category}
     </div>
 ));
@@ -34,7 +34,7 @@ const categoryBoxes = categories.map((category, index) => (
 const StockScreenPage = () => {
     return (
         <div className='pg bg-white]'>
-            <CompanyDetailsPageNavbar />
+            <CompanyDetailsPageNavbar showBottombar={false} />
             <br></br>
             <div className='card'>
                 <div style={{ display: 'flex' }}>
@@ -42,7 +42,7 @@ const StockScreenPage = () => {
                     <br></br>
                     <div className='blackBorder' style={{ flex: '70%', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', padding: '20px', borderColor: 'black', border: '1px solid black' }}>
 
-                        <b><p style={{ fontSize: '25px' }}>Stock Screens</p>  </b><br></br>
+                        <b><p style={{ fontSize: '25px' }}>Stock screens</p>  </b><br></br>
                         <div className='blackBorder card' style={{ border: '1px solid black' }}>
                             Popular Themes<br></br>
                             Popular Investing Themes
