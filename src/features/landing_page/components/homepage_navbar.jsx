@@ -8,6 +8,7 @@ const HomeNavbar = () => {
         { key: '1', label: (<Link to={'/'}>Home</Link>) },
         { key: '2', label: (<Link to={'/news'}>News</Link>) },
         { key: '6', label: (<Link to={'/stocks'}>Stock screen</Link>) },
+        { key: '7', label: (<Link to={'/prediction'}>Stock Prediction</Link>) },
         { key: '3', label: (<Link to={'/profile'}>Profile</Link>) },
         { key: '4', label: (<Link to={'/dashboard'}>Dashboard</Link>) },
         { key: '5', label: (<div onClick={handleLogout}>Logout</div>) }

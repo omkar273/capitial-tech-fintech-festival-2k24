@@ -1,5 +1,6 @@
 import Chatbot from '@/core/components/chatbot';
 import Spacer from '@/core/components/spacer';
+import EarningsChart from '@/features/company_analysis/components/earning_chart';
 import DashboardNavbar from "@/features/dashboard/components/dashboard_navbar";
 import { stocksList } from "@/features/landing_page/data/stocks";
 import { getCompaniesList } from '@/features/onboarding/utils/company_data';
@@ -8,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Avatar, Modal, Tabs } from 'antd';
 import axios from 'axios';
 import { useState } from 'react';
+import GaugeChart from 'react-gauge-chart';
 
 const StockPredictionPage = () => {
 
@@ -64,14 +66,39 @@ const StockPredictionPage = () => {
         <div className='pg'>
             <DashboardNavbar />
 
-            <div className="p-4 md:px-[10%] ">
-                <div className="w-full flex gap-4 md:py-4 md:px-8 p-3 bg-white justify-center items-center rounded-full ">
-                    <SearchIcon className='tap ' fontSize="large" />
-                    <input
-                        onClick={() => setOpen(true)}
-                        type="text" className="border-none focus:outline-none text-base md:text-2xl flex-grow" placeholder='Search company name...' />
+            <div className=''>
+                <div className="p-4 md:px-[10%] ">
+                    <div className="w-full flex gap-4 md:py-4 md:px-8 p-3 bg-white justify-center items-center rounded-full ">
+                        <SearchIcon className='tap ' fontSize="large" />
+                        <input
+                            onClick={() => setOpen(true)}
+                            type="text" className="border-none focus:outline-none text-base md:text-2xl flex-grow" placeholder='Search company name...' />
+                    </div>
                 </div>
+                <div id='Profit & Loss ' className='px-4 md:p-8 pt-12'>
+                    <EarningsChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='Stock prediction' />
+                    <Spacer height={20} />
+                </div>
+                <div className='w-full justify-center flex pt-12 '>
+                    <div className='md:h-[40%] md:w-[40%] w-full'>
+                        <GaugeChart id="gauge-chart3"
+                            textColor={'#000000'}
+                            nrOfLevels={20}
+                            colors={["#66ff33", "#ff0000"]}
+                            arcWidth={0.3}
+                            percent={0.37}
+                        />
+                        <p className='text-center text-2xl font-ubuntu'>
+                            {'Somewhat bullish'}
+                        </p>
+                    </div>
+                </div>
+                <Spacer height={50} />
             </div>
+
+
+
+            {/* popup modal */}
             <Modal
                 title="Capital Tech"
                 centered

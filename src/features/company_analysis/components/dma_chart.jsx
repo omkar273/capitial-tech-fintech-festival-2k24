@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 
 
-const EarningsChart = ({ chartTitle = '', url = '' }) => {
+const DmaChart = ({ chartTitle = '', url = '' }) => {
     const [data, setdata] = useState([])
     const [loading, setLoading] = useState(true);
 
@@ -49,29 +49,11 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
     const [seriesTypeValues, setseriesTypeValues] = useState([seriesType[0].value])
     const getSeriesData = () => {
         return [
-
             {
-                name: 'Reported Eps',
+                name: '200 DMA',
                 data: seriesTypeValues.includes('reportedEPS') ? data?.map((element) => element.reportedEPS) : [],
                 color: '#00ff00'
             },
-            {
-                name: 'Estimated Eps',
-                data: (seriesTypeValues.includes('estimatedEPS')) ? (data?.map((element) => element.estimatedEPS)) : [],
-                color: '#ffff00'
-            },
-            {
-                name: 'Surprise',
-                data: (seriesTypeValues.includes('surprise')) ? data?.map((element) => element.surprise) : [],
-                color: '#ff3300'
-            },
-            {
-                name: 'Surprise Percentage',
-                data: (seriesTypeValues.includes('surprisePercentage')) ? data?.map((element) => element.surprisePercentage) : [],
-                color: '#0040ff'
-            },
-
-
         ]
     }
 
@@ -148,4 +130,4 @@ const EarningsChart = ({ chartTitle = '', url = '' }) => {
     )
 }
 
-export default EarningsChart
+export default DmaChart

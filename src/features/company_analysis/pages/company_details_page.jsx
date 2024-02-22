@@ -12,6 +12,7 @@ import CandleStickChart from './../components/candle_stick_chart';
 import Chatbot from '@/core/components/chatbot';
 import Footer from '@/core/components/footer';
 import BalanceSheetChart, { balance_sheet_labels, cashflow_sheet_labels, income_sheet_labels } from '../components/balance_sheet_table';
+import DmaChart from '../components/dma_chart';
 import EarningsChart from '../components/earning_chart';
 
 
@@ -307,6 +308,12 @@ const CompanyDetailsPage = () => {
                         chartType={chartType} />
                 </div>
                 <Spacer height={20} />
+
+                {/* DMA graph */}
+                <div id='Profit & Loss'>
+                    <DmaChart url='https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo' chartTitle='DMA Chart' />
+                    <Spacer height={20} />
+                </div>
 
                 {/* eps graph */}
                 <div id='Profit & Loss'>
