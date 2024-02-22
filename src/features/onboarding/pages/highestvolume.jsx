@@ -1,7 +1,9 @@
+import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
 
 const HighPage = () => {
     return (
         <div>
+            <CompanyDetailsPageNavbar showBottombar={false} />
             <div className="gr-pg p-4 md:p-12 ">
                 <div className="card  bg-white">
                     BSE (Bombay Stock Exchange) is the oldest stock exchange in Asia, located in Mumbai, Maharashtra. It was established in 1875 and is known for its benchmark index, the S&P BSE SENSEX, which is widely followed in India and abroad.

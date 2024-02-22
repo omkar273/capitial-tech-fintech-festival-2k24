@@ -2,6 +2,7 @@ import { handleLogout } from '@/core/firebase/auth';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Dropdown } from 'antd';
 import { Link } from "react-router-dom";
+// import capitalTechLogo from '../../../assets/images/capitallogo.png';
 const HomeNavbar = () => {
     const items = [
         { key: '1', label: (<Link to={'/'}>Home</Link>) },
@@ -12,7 +13,11 @@ const HomeNavbar = () => {
     ];
     return (
         <div className="w-full py-4 px-[6%] flex justify-between items-center">
-            <div className="md:flex gap-6 items-center  text-lg font-fira-sans hidden ">
+            <div className="md:flex gap-6 items-center font-medium text-white text-lg font-ubuntu- hidden ">
+
+                {/* <Link to={'/'} className=" cursor-pointer tap bg-white rounded-md px-3">
+                    <img src={capitalTechLogo} className="object-cover h-12" />
+                </Link> */}
                 <Link to={'/'} className=" cursor-pointer tap">home</Link>
                 <Link to={'/news'} className=" cursor-pointer tap">News</Link>
                 <Link to={'/'} className=" cursor-pointer tap">support</Link>

@@ -48,7 +48,7 @@ const App = () => {
 
               <Route path='/ch' element={<PrefferencesPage />} />
 
-              <Route path='/high' element={<HighPage />} />
+              <Route path='/info' element={<HighPage />} />
 
               <Route path='/profile' element={<PortfolioPage />} />
 
