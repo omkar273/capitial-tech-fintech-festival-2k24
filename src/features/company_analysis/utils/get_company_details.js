@@ -12,7 +12,6 @@ export const getCompanyDetails = async (symbol) => {
         return res.data;
     } catch (error) {
         console.log(error);
-        // alert(error);
         return null;
     }
 }

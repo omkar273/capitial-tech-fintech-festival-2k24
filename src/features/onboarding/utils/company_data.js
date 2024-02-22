@@ -17,6 +17,7 @@ export const getCompaniesList = async (query = 'tata') => {
 
     try {
         const response = await axios.request(options);
+        console.log(response.data);
         return response.data.data.stock;
     } catch (error) {
         console.log(error);

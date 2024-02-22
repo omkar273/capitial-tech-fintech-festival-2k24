@@ -23,7 +23,6 @@ const HomeNavbar = () => {
             <div className='w-full py-2 px-[3%] flex justify-end items-center md:hidden'>
                 <div>
                     <Dropdown menu={{ items }} placement="bottomRight">
-
                         <MenuIcon fontSize='large' />
                     </Dropdown>
                 </div>
