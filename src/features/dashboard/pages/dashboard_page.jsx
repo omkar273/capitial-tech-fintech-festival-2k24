@@ -43,9 +43,9 @@ const DashboardPage = () => {
                             <NewspaperIcon fontSize='large' />
                             Charts and visualisation </Link>
 
-                        {/* <div className={className} >
+                        <Link className={className} to={'/investment'} >
                             <NewspaperIcon fontSize='large' />
-                            Investment Plans  </div> */}
+                            Investment Plans  </Link>
                     </div>
 
                 </div>
