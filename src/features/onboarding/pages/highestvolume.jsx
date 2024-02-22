@@ -15,7 +15,9 @@ const TutorialPage = () => {
         "BSE provides an efficient and transparent market for trading in equity, debt instruments and derivatives. It has a nation-wide reach with a presence in more than 359 cities and towns of India. BSE has always been at par with the international standards. The systems and processes are designed to safeguard market integrity and enhance transparency in operations. BSE is the first exchange in India and the second in the world to obtain an ISO 9001:2000 certification. It is also the first exchange in the country and second in the world to receive Information Security Management System Standard BS 7799-2-2002 certification for its BSE On-line Trading System (BOLT).",
 
 
-        "BSE continues to innovate. In recent times, it has become the first national level stock exchange to launch its website in Gujarati and Hindi to reach out to a larger number of investors. It has successfully launched a reporting platform for corporate bonds in India christened the ICDM or Indian Corporate Debt Market and a unique ticker-cum-screen aptly named 'BSE Broadcast' which enables information dissemination to the common man on the street."
+        "BSE continues to innovate. In recent times, it has become the first national level stock exchange to launch its website in Gujarati and Hindi to reach out to a larger number of investors. It has successfully launched a reporting platform for corporate bonds in India christened the ICDM or Indian Corporate Debt Market and a unique ticker-cum-screen aptly named 'BSE Broadcast' which enables information dissemination to the common man on the street.",
+
+        "In 2006, BSE launched the Directors Database and ICERS (Indian Corporate Electronic Reporting System) to facilitate information flow and increase transparency in the Indian capital market. While the Directors Database provides a single-point access to information on the boards of directors of listed companies, the ICERS facilitates the corporates in sharing with BSE their corporate announcements."
 
     ]
     return (
