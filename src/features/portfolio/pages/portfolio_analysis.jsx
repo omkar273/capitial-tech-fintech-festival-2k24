@@ -39,7 +39,7 @@ const PortfolioPage = () => {
                     {/* heading */}
                     <div className="w-full flex justify-between items-center font-[500]">
                         <p className="text-xl font-[600]">Your Investment</p>
-                        <p className="text-blue-600 text-base cursor-pointer">Dashboard</p>
+                        <a href="/dashboard" className="text-blue-600 text-base cursor-pointer">Dashboard</a>
                     </div>
                     <Spacer height={15} />
 
