@@ -26,7 +26,10 @@ const HomeNavbar = () => {
                 <Link to={'/stocks'} className=" cursor-pointer tap">
                     Stock screen
                 </Link>
-                <Link to={'/'} className=" cursor-pointer tap">about</Link>
+                <Link to={'/prediction'} className=" cursor-pointer tap">
+                    Stock Prediction
+                </Link>
+                <Link to={'/info'} className=" cursor-pointer tap">about</Link>
             </div>
 
             {/* mobile menu */}

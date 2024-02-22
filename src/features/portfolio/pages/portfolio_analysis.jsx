@@ -15,7 +15,7 @@ const PortfolioPage = () => {
         {
             key: '2',
             label: 'Tax calculation',
-            children: 'Content of Tab Pane 2',
+            children: '<MarketOverviewGauge />',
         },
         {
             key: '3',

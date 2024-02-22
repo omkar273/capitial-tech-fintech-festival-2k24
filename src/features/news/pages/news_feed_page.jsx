@@ -34,6 +34,13 @@ const NewsFeedPage = () => {
 
             <CompanyDetailsPageNavbar showBottombar={false} />
             <div className="p-8 ">
+                {newsFeed.length == 0 && (
+                    <div className="min-h-[80vh] flex justify-center items-center text-3xl font-semibold font-ubuntu">
+                        Loading news...
+                    </div>
+                )
+
+                }
                 {newsFeed.map((news, index) => {
                     return <div key={index} className="rounded-lg overflow-hidden shadow-lg p-6 bg-white md:flex gap-4 mb-4" >
 

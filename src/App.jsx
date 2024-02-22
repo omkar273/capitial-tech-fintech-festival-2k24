@@ -10,9 +10,10 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Chartbox from './features/chartbox/chartbox'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
 import DashboardPage from './features/dashboard/pages/dashboard_page.jsx'
-import HighPage from './features/onboarding/pages/highestvolume'
+import AboutPage from './features/onboarding/pages/highestvolume'
 import PortfolioPage from './features/portfolio/pages/portfolio_analysis.jsx'
 import TaxationPage from './features/portfolio/pages/tax_page.jsx'
+import StockPredictionPage from './features/stock_predicition/pages/stock_prediction'
 import StockScreenPage from './features/stock_screens/pages/stock_screens_page'
 import { themeSettings } from './theme.js'
 
@@ -38,6 +39,9 @@ const App = () => {
               <Route path='/'
                 element={isLoggedIn ? < HomePage /> : <Navigate to={'/auth'} />} />
 
+              <Route path='/prediction'
+                element={isLoggedIn ? < StockPredictionPage /> : <Navigate to={'/auth'} />} />
+
               <Route path='/dashboard' element={<DashboardPage />} />
 
               <Route path='/tax' element={<TaxationPage />} />
@@ -48,7 +52,7 @@ const App = () => {
 
               <Route path='/stocks' element={<StockScreenPage />} />
 
-              <Route path='/info' element={<HighPage />} />
+              <Route path='/info' element={<AboutPage />} />
 
               <Route path='/profile' element={<PortfolioPage />} />
 
