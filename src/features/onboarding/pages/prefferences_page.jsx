@@ -73,10 +73,11 @@ const PrefferencesPage = () => {
 
             </div>
             <div className="w-full flex justify-center ">
-                <a href="/" className=" w-[70%] text-center my-8 p-4 text-2xl bg-blue-500 rounded-md text-white btn">
+                <a href="/info" className=" w-[70%] text-center my-8 p-4 text-2xl bg-blue-500 rounded-md text-white btn">
                     Submit
                 </a>
             </div>
+
         </div>
     )
 }

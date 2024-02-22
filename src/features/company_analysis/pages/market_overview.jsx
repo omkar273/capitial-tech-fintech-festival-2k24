@@ -6,6 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+import Chatbot from "@/core/components/chatbot";
 import CandleStickChart from './../components/candle_stick_chart';
 import { stocksList2 } from "./stock_list";
 
@@ -107,6 +108,9 @@ const MarketOverviewPage = () => {
                     </div>
                 </div>
             </div>
+
+            {/* chatbot */}
+            <Chatbot />
         </div>
     )
 }

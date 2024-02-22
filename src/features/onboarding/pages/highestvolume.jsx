@@ -1,4 +1,5 @@
 import CompanyDetailsPageNavbar from "@/features/company_analysis/components/company_page_navbar";
+import { Link } from "react-router-dom";
 
 const TutorialPage = () => {
     const info = [
@@ -29,6 +30,10 @@ const TutorialPage = () => {
                     {info}
                 </div>)}
             </div>
+
+            <Link to={'/'} className="fixed p-4  text-white font-semibold tap card bg-blue-500 bottom-12 right-12 z-50">
+                go to homepage
+            </Link>
         </div>
 
     )
