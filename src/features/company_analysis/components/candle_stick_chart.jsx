@@ -31,18 +31,20 @@ import {
 const CandleStickChart = ({ chartType, stockPriceTimeSeriesData }) => {
     return (
         <StockChartComponent id='stockcharts'
+
             primaryXAxis={{
                 valueType: 'DateTime',
                 majorGridLines: { width: 0 },
                 majorTickLines: { color: 'transparent' },
                 crosshairTooltip: { enable: true }
             }}
+        
             primaryYAxis={{
                 labelFormat: 'n0',
                 majorTickLines: { width: 0 }
             }}
             crosshair={{ enable: true, lineType: 'Both' }}
-
+            
             periods={
                 [
                     { text: '1M', interval: 1, intervalType: 'Months', selected: true },

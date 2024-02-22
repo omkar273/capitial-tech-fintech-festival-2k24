@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Chartbox from './features/chartbox/chartbox'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
+import MarketOverviewPage from './features/company_analysis/pages/market_overview'
 import DashboardPage from './features/dashboard/pages/dashboard_page.jsx'
 import TutorialPage from './features/onboarding/pages/highestvolume'
 import PrefferencesPage from './features/onboarding/pages/prefferences_page'
@@ -61,6 +62,8 @@ const App = () => {
               <Route path='/info' element={<TutorialPage />} />
 
               <Route path='/profile' element={<PortfolioPage />} />
+
+              <Route path='/overview' element={<MarketOverviewPage />} />
 
               <Route path='/company/:symbol' element={<CompanyDetailsPage />} />
 

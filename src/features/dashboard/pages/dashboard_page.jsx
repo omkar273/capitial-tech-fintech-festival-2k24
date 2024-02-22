@@ -26,7 +26,13 @@ const DashboardPage = () => {
 
                         <Link className={className} to={'/stocks'} >
                             <MarketIcon fontSize='large' />
+                            Stock Screen</Link>
+
+                        <Link className={className} to={'/overview'} >
+                            <MarketIcon fontSize='large' />
                             Market overview </Link>
+
+
                         <Link className={className} to={'/prediction'} >
                             <MarketIcon fontSize='large' />
                             Stock Prediction </Link>
