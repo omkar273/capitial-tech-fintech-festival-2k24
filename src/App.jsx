@@ -10,6 +10,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Chartbox from './features/chartbox/chartbox'
 import CompanyDetailsPage from './features/company_analysis/pages/company_details_page.jsx'
 import DashboardPage from './features/dashboard/pages/dashboard_page.jsx'
+import HighPage from './features/onboarding/pages/highestvolume'
+import PrefferencesPage from './features/onboarding/pages/prefferences_page'
 import PortfolioPage from './features/portfolio/pages/portfolio_analysis.jsx'
 import TaxationPage from './features/portfolio/pages/tax_page.jsx'
 import { themeSettings } from './theme.js'
@@ -41,7 +43,11 @@ const App = () => {
               <Route path='/tax' element={<TaxationPage />} />
 
               <Route path='/news' element={<NewsFeedPage />} />
+
               <Route path='/chart' element={<Chartbox />} />
+
+              <Route path='/ch' element={<PrefferencesPage />} />
+              <Route path='/h' element={<HighPage />} />
 
 
 
