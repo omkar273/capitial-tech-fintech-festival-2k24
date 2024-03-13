@@ -42,7 +42,7 @@ const AuthPage = () => {
                 <InputField hint={'Password'} label={'Password'} />
                 <InputField hint={'Confirm Password'} label={'Confirm Password'} />
                 <Spacer height={10} />
-                <button className='btn'>
+                <button className='btn' onClick={() => alert('Currently we dont support mannual registration please try using google sign')} >
                     Login
                 </button>
                 <Spacer height={10} />
