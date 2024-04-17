@@ -23,7 +23,7 @@ import "./index.css";
 
 /* syncfusion ejs2 charting lib */
 import { registerLicense } from '@syncfusion/ej2-base';
-registerLicense('ORg4AjUWIQA/Gnt2UVhiQlJPdUBAXXxLflFyVWFTfV96dlBWESFaRnZdRl1hSHdTdEdnWnpaeHJT');
+registerLicense('Ngo9BigBOggjHTQxAR8/V1NAaF1cVGhIfEx1RHxQdld5ZFRHallYTnNWUj0eQnxTdEFjXX5ZcXVVQGVUWUR0WA==');
 
 const persistConfig = { key: "root", storage, version: 1 };
 const persistedReducer = persistReducer(persistConfig, authReducer);
